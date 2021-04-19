@@ -142,7 +142,7 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Any?, _ error: Error?) -> Void)) {
+    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: OrderPaginatedResponse?, _ error: Error?) -> Void)) {
         getCurrentCustomerOrdersWithRequestBuilder(page: page, limit: limit).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -160,9 +160,9 @@ import Foundation
        - name: bearer
      - parameter page: (query)  (optional)
      - parameter limit: (query)  (optional)
-     - returns: RequestBuilder<Any> 
+     - returns: RequestBuilder<OrderPaginatedResponse> 
      */
-    open class func getCurrentCustomerOrdersWithRequestBuilder(page: Double? = nil, limit: Double? = nil) -> RequestBuilder<Any> {
+    open class func getCurrentCustomerOrdersWithRequestBuilder(page: Double? = nil, limit: Double? = nil) -> RequestBuilder<OrderPaginatedResponse> {
         let path = "/v1/orders"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -179,7 +179,7 @@ import Foundation
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Any>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<OrderPaginatedResponse>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 # **getCurrentCustomerOrders**
 ```swift
-    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, completion: @escaping (_ data: Any?, _ error: Error?) -> Void)
+    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, completion: @escaping (_ data: OrderPaginatedResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Any**
+[**OrderPaginatedResponse**](OrderPaginatedResponse.md)
 
 ### Authorization
 

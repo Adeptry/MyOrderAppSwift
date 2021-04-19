@@ -30,6 +30,7 @@ MyOrderAppSwift/Classes/OpenAPIs/Models/ModifierList.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/Order.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/OrderAddInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/OrderCreateInput.swift
+MyOrderAppSwift/Classes/OpenAPIs/Models/OrderPaginatedResponse.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/OrderPayInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/OrderRemoveInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareAccessToken.swift
@@ -80,6 +81,7 @@ docs/ModifierList.md
 docs/Order.md
 docs/OrderAddInput.md
 docs/OrderCreateInput.md
+docs/OrderPaginatedResponse.md
 docs/OrderPayInput.md
 docs/OrderRemoveInput.md
 docs/OrdersAPI.md

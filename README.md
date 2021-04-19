@@ -60,6 +60,7 @@ Class | Method | HTTP request | Description
  - [Order](docs/Order.md)
  - [OrderAddInput](docs/OrderAddInput.md)
  - [OrderCreateInput](docs/OrderCreateInput.md)
+ - [OrderPaginatedResponse](docs/OrderPaginatedResponse.md)
  - [OrderPayInput](docs/OrderPayInput.md)
  - [OrderRemoveInput](docs/OrderRemoveInput.md)
  - [SquareAccessToken](docs/SquareAccessToken.md)
