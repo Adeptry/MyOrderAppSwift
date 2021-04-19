@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquarePayment: NSObject, Codable {
+@objc public class MOASquarePayment: NSObject, Codable {
 
     public var _id: String?
     public var createdAt: String?

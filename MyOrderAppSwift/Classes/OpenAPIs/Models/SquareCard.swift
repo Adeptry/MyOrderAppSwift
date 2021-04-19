@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareCard: NSObject, Codable {
+@objc public class MOASquareCard: NSObject, Codable {
 
     public var _id: String?
     public var expMonth: Double?

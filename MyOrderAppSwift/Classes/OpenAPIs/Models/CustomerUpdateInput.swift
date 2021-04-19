@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class CustomerUpdateInput: NSObject, Codable {
+@objc public class MOACustomerUpdateInput: NSObject, Codable {
 
     public var _id: String?
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Catalog: NSObject, Codable {
+@objc public class MOACatalog: NSObject, Codable {
 
     public var categories: [Category]?
     public var merchant: Merchant?

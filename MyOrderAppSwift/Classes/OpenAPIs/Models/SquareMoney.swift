@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareMoney: NSObject, Codable {
+@objc public class MOASquareMoney: NSObject, Codable {
 
     public var amount: Double?
     public var currency: String?

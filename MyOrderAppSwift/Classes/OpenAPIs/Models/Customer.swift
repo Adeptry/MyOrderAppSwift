@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Customer: NSObject, Codable {
+@objc public class MOACustomer: NSObject, Codable {
 
     public var currentOrder: Order?
     public var orders: [Order]?

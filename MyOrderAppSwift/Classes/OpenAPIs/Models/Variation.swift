@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Variation: NSObject, Codable {
+@objc public class MOAVariation: NSObject, Codable {
 
     public var item: Item?
     public var _id: String?

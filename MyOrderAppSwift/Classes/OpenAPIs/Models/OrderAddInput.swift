@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class OrderAddInput: NSObject, Codable {
+@objc public class MOAOrderAddInput: NSObject, Codable {
 
     public var squareVariationId: String
     public var quantity: Double

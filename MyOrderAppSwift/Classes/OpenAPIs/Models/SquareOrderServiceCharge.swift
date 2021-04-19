@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareOrderServiceCharge: NSObject, Codable {
+@objc public class MOASquareOrderServiceCharge: NSObject, Codable {
 
     public var uid: String?
     public var name: String?

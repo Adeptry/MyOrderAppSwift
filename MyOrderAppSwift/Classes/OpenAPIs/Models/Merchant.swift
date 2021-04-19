@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Merchant: NSObject, Codable {
+@objc public class MOAMerchant: NSObject, Codable {
 
     public var catalog: Catalog?
     public var _id: String?

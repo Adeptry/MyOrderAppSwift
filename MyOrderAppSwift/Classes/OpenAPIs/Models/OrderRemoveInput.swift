@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class OrderRemoveInput: NSObject, Codable {
+@objc public class MOAOrderRemoveInput: NSObject, Codable {
 
     public var orderVariationUid: String
 

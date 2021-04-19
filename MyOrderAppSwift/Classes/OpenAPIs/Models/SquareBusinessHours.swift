@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareBusinessHours: NSObject, Codable {
+@objc public class MOASquareBusinessHours: NSObject, Codable {
 
     public var periods: [SquareBusinessHoursPeriod]?
 

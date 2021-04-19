@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Modifier: NSObject, Codable {
+@objc public class MOAModifier: NSObject, Codable {
 
     public var modifierList: ModifierList?
     public var _id: String?

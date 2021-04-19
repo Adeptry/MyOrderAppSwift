@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Item: NSObject, Codable {
+@objc public class MOAItem: NSObject, Codable {
 
     public var category: Category?
     public var modifierLists: [ModifierList]?

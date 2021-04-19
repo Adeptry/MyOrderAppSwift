@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class OrderPayInput: NSObject, Codable {
+@objc public class MOAOrderPayInput: NSObject, Codable {
 
     public var paymentSquareId: String
     public var idempotencyKey: String

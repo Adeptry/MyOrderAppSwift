@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareOrderFulfillment: NSObject, Codable {
+@objc public class MOASquareOrderFulfillment: NSObject, Codable {
 
     public var uid: String?
     public var type: String?

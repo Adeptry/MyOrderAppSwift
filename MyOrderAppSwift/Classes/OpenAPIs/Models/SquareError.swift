@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareError: NSObject, Codable {
+@objc public class MOASquareError: NSObject, Codable {
 
     public var category: String?
     public var code: String?

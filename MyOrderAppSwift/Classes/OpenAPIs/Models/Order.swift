@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class Order: NSObject, Codable {
+@objc public class MOAOrder: NSObject, Codable {
 
     public var squareOrder: SquareOrder?
     public var squarePayment: SquarePayment?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareAccessToken: NSObject, Codable {
+@objc public class MOASquareAccessToken: NSObject, Codable {
 
     public var _id: String?
     public var createDate: Date?

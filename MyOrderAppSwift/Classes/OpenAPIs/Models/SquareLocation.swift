@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareLocation: NSObject, Codable {
+@objc public class MOASquareLocation: NSObject, Codable {
 
     public var _id: String?
     public var name: String?

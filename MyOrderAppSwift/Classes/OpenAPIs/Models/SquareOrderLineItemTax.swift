@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class SquareOrderLineItemTax: NSObject, Codable {
+@objc public class MOASquareOrderLineItemTax: NSObject, Codable {
 
     public var uid: String?
     public var catalogObjectId: String?
