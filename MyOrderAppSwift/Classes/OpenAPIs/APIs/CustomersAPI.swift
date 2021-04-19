@@ -12,15 +12,15 @@ import Foundation
 
      - parameter moaCustomerCreateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func createCustomer(moaCustomerCreateInput: MoaCustomerCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+    open class func createCustomer(moaCustomerCreateInput: MoaCustomerCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
         createCustomerWithRequestBuilder(moaCustomerCreateInput: moaCustomerCreateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -51,15 +51,15 @@ import Foundation
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func getCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+    open class func getCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
         getCurrentCustomerWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -93,15 +93,15 @@ import Foundation
 
      - parameter moaCustomerUpdateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
         updateCustomerWithRequestBuilder(moaCustomerUpdateInput: moaCustomerUpdateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }

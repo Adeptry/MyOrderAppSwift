@@ -12,15 +12,15 @@ import Foundation
 
      - parameter moaOrderAddInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func addToCurrentOrder(moaOrderAddInput: MoaOrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+    open class func addToCurrentOrder(moaOrderAddInput: MoaOrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
         addToCurrentOrderWithRequestBuilder(moaOrderAddInput: moaOrderAddInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -55,15 +55,15 @@ import Foundation
 
      - parameter moaOrderCreateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func createOrder(moaOrderCreateInput: MoaOrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+    open class func createOrder(moaOrderCreateInput: MoaOrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
         createOrderWithRequestBuilder(moaOrderCreateInput: moaOrderCreateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -97,15 +97,15 @@ import Foundation
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func deleteCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+    open class func deleteCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
         deleteCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -140,15 +140,15 @@ import Foundation
      - parameter page: (query)  (optional)
      - parameter limit: (query)  (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrderPaginatedResponse?, _ error: Error?) -> Void)) {
+    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrderPaginatedResponse, Error>) -> Void)) {
         getCurrentCustomerOrdersWithRequestBuilder(page: page, limit: limit).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -187,15 +187,15 @@ import Foundation
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func getCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+    open class func getCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
         getCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -229,15 +229,15 @@ import Foundation
 
      - parameter _id: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func getOrderWithId(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+    open class func getOrderWithId(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
         getOrderWithIdWithRequestBuilder(_id: _id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -275,15 +275,15 @@ import Foundation
 
      - parameter moaOrderPayInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func payForCurrentOrder(moaOrderPayInput: MoaOrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+    open class func payForCurrentOrder(moaOrderPayInput: MoaOrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
         payForCurrentOrderWithRequestBuilder(moaOrderPayInput: moaOrderPayInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
@@ -318,15 +318,15 @@ import Foundation
 
      - parameter moaOrderRemoveInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func removeFromCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+    open class func removeFromCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
         removeFromCurrentOrderWithRequestBuilder(moaOrderRemoveInput: moaOrderRemoveInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }

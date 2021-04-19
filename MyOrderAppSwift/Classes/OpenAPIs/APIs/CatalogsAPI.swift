@@ -11,15 +11,15 @@ import Foundation
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func getCatalogForCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCatalog?, _ error: Error?) -> Void)) {
+    open class func getCatalogForCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCatalog, Error>) -> Void)) {
         getCatalogForCurrentCustomerWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }

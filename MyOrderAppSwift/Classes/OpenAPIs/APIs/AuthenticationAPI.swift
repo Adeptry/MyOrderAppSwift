@@ -12,15 +12,15 @@ import Foundation
 
      - parameter moaAuthenticationInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
+     - parameter completion: completion handler to receive the result
      */
-    open class func postAuthentication(moaAuthenticationInput: MoaAuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaAuthenticationOutput?, _ error: Error?) -> Void)) {
+    open class func postAuthentication(moaAuthenticationInput: MoaAuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaAuthenticationOutput, Error>) -> Void)) {
         postAuthenticationWithRequestBuilder(moaAuthenticationInput: moaAuthenticationInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
-                completion(response.body, nil)
+                completion(.success(response.body!))
             case let .failure(error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
