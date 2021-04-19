@@ -7,15 +7,15 @@
 
 import Foundation
 
-open class CustomersAPI {
+@objc open class CustomersAPI : NSObject {
     /**
 
-     - parameter customerCreateInput: (body)  
+     - parameter moaCustomerCreateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func createCustomer(customerCreateInput: CustomerCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Customer?, _ error: Error?) -> Void)) {
-        createCustomerWithRequestBuilder(customerCreateInput: customerCreateInput).execute(apiResponseQueue) { result -> Void in
+    open class func createCustomer(moaCustomerCreateInput: MoaCustomerCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+        createCustomerWithRequestBuilder(moaCustomerCreateInput: moaCustomerCreateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -27,13 +27,13 @@ open class CustomersAPI {
 
     /**
      - POST /v1/customers
-     - parameter customerCreateInput: (body)  
-     - returns: RequestBuilder<Customer> 
+     - parameter moaCustomerCreateInput: (body)  
+     - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func createCustomerWithRequestBuilder(customerCreateInput: CustomerCreateInput) -> RequestBuilder<Customer> {
+    open class func createCustomerWithRequestBuilder(moaCustomerCreateInput: MoaCustomerCreateInput) -> RequestBuilder<MoaCustomer> {
         let path = "/v1/customers"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: customerCreateInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaCustomerCreateInput)
 
         let url = URLComponents(string: URLString)
 
@@ -43,7 +43,7 @@ open class CustomersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Customer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
@@ -53,7 +53,7 @@ open class CustomersAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Customer?, _ error: Error?) -> Void)) {
+    open class func getCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
         getCurrentCustomerWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -69,9 +69,9 @@ open class CustomersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - returns: RequestBuilder<Customer> 
+     - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func getCurrentCustomerWithRequestBuilder() -> RequestBuilder<Customer> {
+    open class func getCurrentCustomerWithRequestBuilder() -> RequestBuilder<MoaCustomer> {
         let path = "/v1/customers/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -84,19 +84,19 @@ open class CustomersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Customer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
 
-     - parameter customerUpdateInput: (body)  
+     - parameter moaCustomerUpdateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateCustomer(customerUpdateInput: CustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Customer?, _ error: Error?) -> Void)) {
-        updateCustomerWithRequestBuilder(customerUpdateInput: customerUpdateInput).execute(apiResponseQueue) { result -> Void in
+    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+        updateCustomerWithRequestBuilder(moaCustomerUpdateInput: moaCustomerUpdateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -108,13 +108,13 @@ open class CustomersAPI {
 
     /**
      - PUT /v1/customers/current
-     - parameter customerUpdateInput: (body)  
-     - returns: RequestBuilder<Customer> 
+     - parameter moaCustomerUpdateInput: (body)  
+     - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func updateCustomerWithRequestBuilder(customerUpdateInput: CustomerUpdateInput) -> RequestBuilder<Customer> {
+    open class func updateCustomerWithRequestBuilder(moaCustomerUpdateInput: MoaCustomerUpdateInput) -> RequestBuilder<MoaCustomer> {
         let path = "/v1/customers/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: customerUpdateInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaCustomerUpdateInput)
 
         let url = URLComponents(string: URLString)
 
@@ -124,7 +124,7 @@ open class CustomersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Customer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

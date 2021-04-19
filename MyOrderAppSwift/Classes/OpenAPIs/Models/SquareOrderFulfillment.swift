@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareOrderFulfillment: Codable, Hashable {
+@objc public class SquareOrderFulfillment: NSObject, Codable {
 
     public var uid: String?
     public var type: String?

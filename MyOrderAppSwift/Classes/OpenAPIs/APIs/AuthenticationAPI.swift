@@ -7,15 +7,15 @@
 
 import Foundation
 
-open class AuthenticationAPI {
+@objc open class AuthenticationAPI : NSObject {
     /**
 
-     - parameter authenticationInput: (body)  
+     - parameter moaAuthenticationInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postAuthentication(authenticationInput: AuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: AuthenticationOutput?, _ error: Error?) -> Void)) {
-        postAuthenticationWithRequestBuilder(authenticationInput: authenticationInput).execute(apiResponseQueue) { result -> Void in
+    open class func postAuthentication(moaAuthenticationInput: MoaAuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaAuthenticationOutput?, _ error: Error?) -> Void)) {
+        postAuthenticationWithRequestBuilder(moaAuthenticationInput: moaAuthenticationInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -27,13 +27,13 @@ open class AuthenticationAPI {
 
     /**
      - POST /v1/authentication
-     - parameter authenticationInput: (body)  
-     - returns: RequestBuilder<AuthenticationOutput> 
+     - parameter moaAuthenticationInput: (body)  
+     - returns: RequestBuilder<MoaAuthenticationOutput> 
      */
-    open class func postAuthenticationWithRequestBuilder(authenticationInput: AuthenticationInput) -> RequestBuilder<AuthenticationOutput> {
+    open class func postAuthenticationWithRequestBuilder(moaAuthenticationInput: MoaAuthenticationInput) -> RequestBuilder<MoaAuthenticationOutput> {
         let path = "/v1/authentication"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: authenticationInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaAuthenticationInput)
 
         let url = URLComponents(string: URLString)
 
@@ -43,7 +43,7 @@ open class AuthenticationAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<AuthenticationOutput>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaAuthenticationOutput>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareDeleteCustomerCardInput: Codable, Hashable {
+@objc public class SquareDeleteCustomerCardInput: NSObject, Codable {
 
     public var squareCardId: String?
 

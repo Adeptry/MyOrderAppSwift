@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareOrderLineItem: Codable, Hashable {
+@objc public class SquareOrderLineItem: NSObject, Codable {
 
     public var uid: String?
     public var name: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareCreateCustomerCardInput: Codable, Hashable {
+@objc public class SquareCreateCustomerCardInput: NSObject, Codable {
 
     public var cardNonce: String
     public var billingAddress: SquareAddress?

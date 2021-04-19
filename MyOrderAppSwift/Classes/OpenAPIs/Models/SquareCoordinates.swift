@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareCoordinates: Codable, Hashable {
+@objc public class SquareCoordinates: NSObject, Codable {
 
     public var latitude: Double?
     public var longitude: Double?

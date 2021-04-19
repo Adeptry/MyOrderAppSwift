@@ -7,13 +7,13 @@
 
 import Foundation
 
-open class CatalogsAPI {
+@objc open class CatalogsAPI : NSObject {
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCatalogForCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Catalog?, _ error: Error?) -> Void)) {
+    open class func getCatalogForCurrentCustomer(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCatalog?, _ error: Error?) -> Void)) {
         getCatalogForCurrentCustomerWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -29,9 +29,9 @@ open class CatalogsAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - returns: RequestBuilder<Catalog> 
+     - returns: RequestBuilder<MoaCatalog> 
      */
-    open class func getCatalogForCurrentCustomerWithRequestBuilder() -> RequestBuilder<Catalog> {
+    open class func getCatalogForCurrentCustomerWithRequestBuilder() -> RequestBuilder<MoaCatalog> {
         let path = "/v1/catalogs/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -44,7 +44,7 @@ open class CatalogsAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Catalog>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCatalog>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

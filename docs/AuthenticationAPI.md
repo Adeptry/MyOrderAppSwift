@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **postAuthentication**
 ```swift
-    open class func postAuthentication(authenticationInput: AuthenticationInput, completion: @escaping (_ data: AuthenticationOutput?, _ error: Error?) -> Void)
+    open class func postAuthentication(moaAuthenticationInput: MoaAuthenticationInput, completion: @escaping (_ data: MoaAuthenticationOutput?, _ error: Error?) -> Void)
 ```
 
 
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let authenticationInput = AuthenticationInput(email: "email_example", password: "password_example", merchantId: "merchantId_example") // AuthenticationInput | 
+let moaAuthenticationInput = MoaAuthenticationInput(email: "email_example", password: "password_example", merchantId: "merchantId_example") // MoaAuthenticationInput | 
 
-AuthenticationAPI.postAuthentication(authenticationInput: authenticationInput) { (response, error) in
+AuthenticationAPI.postAuthentication(moaAuthenticationInput: moaAuthenticationInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -37,11 +37,11 @@ AuthenticationAPI.postAuthentication(authenticationInput: authenticationInput) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticationInput** | [**AuthenticationInput**](AuthenticationInput.md) |  | 
+ **moaAuthenticationInput** | [**MoaAuthenticationInput**](MoaAuthenticationInput.md) |  | 
 
 ### Return type
 
-[**AuthenticationOutput**](AuthenticationOutput.md)
+[**MoaAuthenticationOutput**](MoaAuthenticationOutput.md)
 
 ### Authorization
 

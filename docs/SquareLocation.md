@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **address** | [**SquareAddress**](SquareAddress.md) |  | [optional] 
 **timezone** | **String** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **websiteUrl** | **String** |  | [optional] 
 **businessHours** | [**SquareBusinessHours**](SquareBusinessHours.md) |  | [optional] 
 **businessEmail** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
+**_description** | **String** |  | [optional] 
 **twitterUsername** | **String** |  | [optional] 
 **instagramUsername** | **String** |  | [optional] 
 **facebookUrl** | **String** |  | [optional] 

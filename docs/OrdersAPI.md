@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **addToCurrentOrder**
 ```swift
-    open class func addToCurrentOrder(orderAddInput: OrderAddInput, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func addToCurrentOrder(moaOrderAddInput: MoaOrderAddInput, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -26,9 +26,9 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let orderAddInput = OrderAddInput(squareVariationId: "squareVariationId_example", quantity: 123, modifiersIds: ["modifiersIds_example"]) // OrderAddInput | 
+let moaOrderAddInput = MoaOrderAddInput(squareVariationId: "squareVariationId_example", quantity: 123, modifiersIds: ["modifiersIds_example"]) // MoaOrderAddInput | 
 
-OrdersAPI.addToCurrentOrder(orderAddInput: orderAddInput) { (response, error) in
+OrdersAPI.addToCurrentOrder(moaOrderAddInput: moaOrderAddInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -44,11 +44,11 @@ OrdersAPI.addToCurrentOrder(orderAddInput: orderAddInput) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderAddInput** | [**OrderAddInput**](OrderAddInput.md) |  | 
+ **moaOrderAddInput** | [**MoaOrderAddInput**](MoaOrderAddInput.md) |  | 
 
 ### Return type
 
-[**Order**](Order.md)
+[**MoaOrder**](MoaOrder.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 # **createOrder**
 ```swift
-    open class func createOrder(orderCreateInput: OrderCreateInput, completion: @escaping (_ data: Customer?, _ error: Error?) -> Void)
+    open class func createOrder(moaOrderCreateInput: MoaOrderCreateInput, completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let orderCreateInput = OrderCreateInput(squareLocationId: "squareLocationId_example") // OrderCreateInput | 
+let moaOrderCreateInput = MoaOrderCreateInput(squareLocationId: "squareLocationId_example") // MoaOrderCreateInput | 
 
-OrdersAPI.createOrder(orderCreateInput: orderCreateInput) { (response, error) in
+OrdersAPI.createOrder(moaOrderCreateInput: moaOrderCreateInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -91,11 +91,11 @@ OrdersAPI.createOrder(orderCreateInput: orderCreateInput) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCreateInput** | [**OrderCreateInput**](OrderCreateInput.md) |  | 
+ **moaOrderCreateInput** | [**MoaOrderCreateInput**](MoaOrderCreateInput.md) |  | 
 
 ### Return type
 
-[**Customer**](Customer.md)
+[**MoaCustomer**](MoaCustomer.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 # **deleteCurrentOrder**
 ```swift
-    open class func deleteCurrentOrder(completion: @escaping (_ data: Customer?, _ error: Error?) -> Void)
+    open class func deleteCurrentOrder(completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -138,7 +138,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Customer**](Customer.md)
+[**MoaCustomer**](MoaCustomer.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 # **getCurrentCustomerOrders**
 ```swift
-    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, completion: @escaping (_ data: OrderPaginatedResponse?, _ error: Error?) -> Void)
+    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, completion: @escaping (_ data: MoaOrderPaginatedResponse?, _ error: Error?) -> Void)
 ```
 
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderPaginatedResponse**](OrderPaginatedResponse.md)
+[**MoaOrderPaginatedResponse**](MoaOrderPaginatedResponse.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 # **getCurrentOrder**
 ```swift
-    open class func getCurrentOrder(completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func getCurrentOrder(completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -230,7 +230,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Order**](Order.md)
+[**MoaOrder**](MoaOrder.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ This endpoint does not need any parameter.
 
 # **getOrderWithId**
 ```swift
-    open class func getOrderWithId(id: String, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func getOrderWithId(_id: String, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -255,9 +255,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let id = "id_example" // String | 
+let _id = "_id_example" // String | 
 
-OrdersAPI.getOrderWithId(id: id) { (response, error) in
+OrdersAPI.getOrderWithId(_id: _id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -273,11 +273,11 @@ OrdersAPI.getOrderWithId(id: id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String** |  | 
+ **_id** | **String** |  | 
 
 ### Return type
 
-[**Order**](Order.md)
+[**MoaOrder**](MoaOrder.md)
 
 ### Authorization
 
@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 # **payForCurrentOrder**
 ```swift
-    open class func payForCurrentOrder(orderPayInput: OrderPayInput, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func payForCurrentOrder(moaOrderPayInput: MoaOrderPayInput, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -302,9 +302,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let orderPayInput = OrderPayInput(paymentSquareId: "paymentSquareId_example", idempotencyKey: "idempotencyKey_example") // OrderPayInput | 
+let moaOrderPayInput = MoaOrderPayInput(paymentSquareId: "paymentSquareId_example", idempotencyKey: "idempotencyKey_example") // MoaOrderPayInput | 
 
-OrdersAPI.payForCurrentOrder(orderPayInput: orderPayInput) { (response, error) in
+OrdersAPI.payForCurrentOrder(moaOrderPayInput: moaOrderPayInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -320,11 +320,11 @@ OrdersAPI.payForCurrentOrder(orderPayInput: orderPayInput) { (response, error) i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderPayInput** | [**OrderPayInput**](OrderPayInput.md) |  | 
+ **moaOrderPayInput** | [**MoaOrderPayInput**](MoaOrderPayInput.md) |  | 
 
 ### Return type
 
-[**Order**](Order.md)
+[**MoaOrder**](MoaOrder.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 # **removeFromCurrentOrder**
 ```swift
-    open class func removeFromCurrentOrder(orderRemoveInput: OrderRemoveInput, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func removeFromCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -349,9 +349,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let orderRemoveInput = OrderRemoveInput(orderVariationUid: "orderVariationUid_example") // OrderRemoveInput | 
+let moaOrderRemoveInput = MoaOrderRemoveInput(orderVariationUid: "orderVariationUid_example") // MoaOrderRemoveInput | 
 
-OrdersAPI.removeFromCurrentOrder(orderRemoveInput: orderRemoveInput) { (response, error) in
+OrdersAPI.removeFromCurrentOrder(moaOrderRemoveInput: moaOrderRemoveInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -367,11 +367,11 @@ OrdersAPI.removeFromCurrentOrder(orderRemoveInput: orderRemoveInput) { (response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderRemoveInput** | [**OrderRemoveInput**](OrderRemoveInput.md) |  | 
+ **moaOrderRemoveInput** | [**MoaOrderRemoveInput**](MoaOrderRemoveInput.md) |  | 
 
 ### Return type
 
-[**Order**](Order.md)
+[**MoaOrder**](MoaOrder.md)
 
 ### Authorization
 

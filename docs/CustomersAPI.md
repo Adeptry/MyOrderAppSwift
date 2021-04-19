@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **createCustomer**
 ```swift
-    open class func createCustomer(customerCreateInput: CustomerCreateInput, completion: @escaping (_ data: Customer?, _ error: Error?) -> Void)
+    open class func createCustomer(moaCustomerCreateInput: MoaCustomerCreateInput, completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -21,9 +21,9 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let customerCreateInput = CustomerCreateInput(email: "email_example", password: "password_example", merchantId: "merchantId_example") // CustomerCreateInput | 
+let moaCustomerCreateInput = MoaCustomerCreateInput(email: "email_example", password: "password_example", merchantId: "merchantId_example") // MoaCustomerCreateInput | 
 
-CustomersAPI.createCustomer(customerCreateInput: customerCreateInput) { (response, error) in
+CustomersAPI.createCustomer(moaCustomerCreateInput: moaCustomerCreateInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -39,11 +39,11 @@ CustomersAPI.createCustomer(customerCreateInput: customerCreateInput) { (respons
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerCreateInput** | [**CustomerCreateInput**](CustomerCreateInput.md) |  | 
+ **moaCustomerCreateInput** | [**MoaCustomerCreateInput**](MoaCustomerCreateInput.md) |  | 
 
 ### Return type
 
-[**Customer**](Customer.md)
+[**MoaCustomer**](MoaCustomer.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ No authorization required
 
 # **getCurrentCustomer**
 ```swift
-    open class func getCurrentCustomer(completion: @escaping (_ data: Customer?, _ error: Error?) -> Void)
+    open class func getCurrentCustomer(completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -86,7 +86,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Customer**](Customer.md)
+[**MoaCustomer**](MoaCustomer.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ This endpoint does not need any parameter.
 
 # **updateCustomer**
 ```swift
-    open class func updateCustomer(customerUpdateInput: CustomerUpdateInput, completion: @escaping (_ data: Customer?, _ error: Error?) -> Void)
+    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -111,9 +111,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let customerUpdateInput = CustomerUpdateInput(id: "id_example") // CustomerUpdateInput | 
+let moaCustomerUpdateInput = MoaCustomerUpdateInput(_id: "_id_example") // MoaCustomerUpdateInput | 
 
-CustomersAPI.updateCustomer(customerUpdateInput: customerUpdateInput) { (response, error) in
+CustomersAPI.updateCustomer(moaCustomerUpdateInput: moaCustomerUpdateInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -129,11 +129,11 @@ CustomersAPI.updateCustomer(customerUpdateInput: customerUpdateInput) { (respons
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerUpdateInput** | [**CustomerUpdateInput**](CustomerUpdateInput.md) |  | 
+ **moaCustomerUpdateInput** | [**MoaCustomerUpdateInput**](MoaCustomerUpdateInput.md) |  | 
 
 ### Return type
 
-[**Customer**](Customer.md)
+[**MoaCustomer**](MoaCustomer.md)
 
 ### Authorization
 

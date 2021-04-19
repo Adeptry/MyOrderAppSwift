@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareOrderRoundingAdjustment: Codable, Hashable {
+@objc public class SquareOrderRoundingAdjustment: NSObject, Codable {
 
     public var uid: String?
     public var name: String?

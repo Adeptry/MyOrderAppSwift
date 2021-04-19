@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareBusinessHoursPeriod: Codable, Hashable {
+@objc public class SquareBusinessHoursPeriod: NSObject, Codable {
 
     public var dayOfWeek: String?
     public var startLocalTime: String?

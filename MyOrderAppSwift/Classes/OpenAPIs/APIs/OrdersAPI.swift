@@ -7,15 +7,15 @@
 
 import Foundation
 
-open class OrdersAPI {
+@objc open class OrdersAPI : NSObject {
     /**
 
-     - parameter orderAddInput: (body)  
+     - parameter moaOrderAddInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func addToCurrentOrder(orderAddInput: OrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
-        addToCurrentOrderWithRequestBuilder(orderAddInput: orderAddInput).execute(apiResponseQueue) { result -> Void in
+    open class func addToCurrentOrder(moaOrderAddInput: MoaOrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+        addToCurrentOrderWithRequestBuilder(moaOrderAddInput: moaOrderAddInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -30,13 +30,13 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter orderAddInput: (body)  
-     - returns: RequestBuilder<Order> 
+     - parameter moaOrderAddInput: (body)  
+     - returns: RequestBuilder<MoaOrder> 
      */
-    open class func addToCurrentOrderWithRequestBuilder(orderAddInput: OrderAddInput) -> RequestBuilder<Order> {
+    open class func addToCurrentOrderWithRequestBuilder(moaOrderAddInput: MoaOrderAddInput) -> RequestBuilder<MoaOrder> {
         let path = "/v1/orders/current/add"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderAddInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderAddInput)
 
         let url = URLComponents(string: URLString)
 
@@ -46,19 +46,19 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Order>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
 
-     - parameter orderCreateInput: (body)  
+     - parameter moaOrderCreateInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func createOrder(orderCreateInput: OrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Customer?, _ error: Error?) -> Void)) {
-        createOrderWithRequestBuilder(orderCreateInput: orderCreateInput).execute(apiResponseQueue) { result -> Void in
+    open class func createOrder(moaOrderCreateInput: MoaOrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
+        createOrderWithRequestBuilder(moaOrderCreateInput: moaOrderCreateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -73,13 +73,13 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter orderCreateInput: (body)  
-     - returns: RequestBuilder<Customer> 
+     - parameter moaOrderCreateInput: (body)  
+     - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func createOrderWithRequestBuilder(orderCreateInput: OrderCreateInput) -> RequestBuilder<Customer> {
+    open class func createOrderWithRequestBuilder(moaOrderCreateInput: MoaOrderCreateInput) -> RequestBuilder<MoaCustomer> {
         let path = "/v1/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderCreateInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderCreateInput)
 
         let url = URLComponents(string: URLString)
 
@@ -89,7 +89,7 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Customer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
@@ -99,7 +99,7 @@ open class OrdersAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Customer?, _ error: Error?) -> Void)) {
+    open class func deleteCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaCustomer?, _ error: Error?) -> Void)) {
         deleteCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -115,9 +115,9 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - returns: RequestBuilder<Customer> 
+     - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func deleteCurrentOrderWithRequestBuilder() -> RequestBuilder<Customer> {
+    open class func deleteCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaCustomer> {
         let path = "/v1/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -130,7 +130,7 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Customer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
@@ -142,7 +142,7 @@ open class OrdersAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: OrderPaginatedResponse?, _ error: Error?) -> Void)) {
+    open class func getCurrentCustomerOrders(page: Double? = nil, limit: Double? = nil, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrderPaginatedResponse?, _ error: Error?) -> Void)) {
         getCurrentCustomerOrdersWithRequestBuilder(page: page, limit: limit).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -160,9 +160,9 @@ open class OrdersAPI {
        - name: bearer
      - parameter page: (query)  (optional)
      - parameter limit: (query)  (optional)
-     - returns: RequestBuilder<OrderPaginatedResponse> 
+     - returns: RequestBuilder<MoaOrderPaginatedResponse> 
      */
-    open class func getCurrentCustomerOrdersWithRequestBuilder(page: Double? = nil, limit: Double? = nil) -> RequestBuilder<OrderPaginatedResponse> {
+    open class func getCurrentCustomerOrdersWithRequestBuilder(page: Double? = nil, limit: Double? = nil) -> RequestBuilder<MoaOrderPaginatedResponse> {
         let path = "/v1/orders"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -179,7 +179,7 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<OrderPaginatedResponse>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrderPaginatedResponse>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
@@ -189,7 +189,7 @@ open class OrdersAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
+    open class func getCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
         getCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -205,9 +205,9 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - returns: RequestBuilder<Order> 
+     - returns: RequestBuilder<MoaOrder> 
      */
-    open class func getCurrentOrderWithRequestBuilder() -> RequestBuilder<Order> {
+    open class func getCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaOrder> {
         let path = "/v1/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -220,19 +220,19 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Order>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
 
-     - parameter id: (path)  
+     - parameter _id: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getOrderWithId(id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
-        getOrderWithIdWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+    open class func getOrderWithId(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+        getOrderWithIdWithRequestBuilder(_id: _id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -247,14 +247,14 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter id: (path)  
-     - returns: RequestBuilder<Order> 
+     - parameter _id: (path)  
+     - returns: RequestBuilder<MoaOrder> 
      */
-    open class func getOrderWithIdWithRequestBuilder(id: String) -> RequestBuilder<Order> {
+    open class func getOrderWithIdWithRequestBuilder(_id: String) -> RequestBuilder<MoaOrder> {
         var path = "/v1/orders/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let _idPreEscape = "\(APIHelper.mapValueToPathItem(_id))"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -266,19 +266,19 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Order>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
 
-     - parameter orderPayInput: (body)  
+     - parameter moaOrderPayInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func payForCurrentOrder(orderPayInput: OrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
-        payForCurrentOrderWithRequestBuilder(orderPayInput: orderPayInput).execute(apiResponseQueue) { result -> Void in
+    open class func payForCurrentOrder(moaOrderPayInput: MoaOrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+        payForCurrentOrderWithRequestBuilder(moaOrderPayInput: moaOrderPayInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -293,13 +293,13 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter orderPayInput: (body)  
-     - returns: RequestBuilder<Order> 
+     - parameter moaOrderPayInput: (body)  
+     - returns: RequestBuilder<MoaOrder> 
      */
-    open class func payForCurrentOrderWithRequestBuilder(orderPayInput: OrderPayInput) -> RequestBuilder<Order> {
+    open class func payForCurrentOrderWithRequestBuilder(moaOrderPayInput: MoaOrderPayInput) -> RequestBuilder<MoaOrder> {
         let path = "/v1/orders/current/pay"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderPayInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderPayInput)
 
         let url = URLComponents(string: URLString)
 
@@ -309,19 +309,19 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Order>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
 
-     - parameter orderRemoveInput: (body)  
+     - parameter moaOrderRemoveInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func removeFromCurrentOrder(orderRemoveInput: OrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
-        removeFromCurrentOrderWithRequestBuilder(orderRemoveInput: orderRemoveInput).execute(apiResponseQueue) { result -> Void in
+    open class func removeFromCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: MoaOrder?, _ error: Error?) -> Void)) {
+        removeFromCurrentOrderWithRequestBuilder(moaOrderRemoveInput: moaOrderRemoveInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -336,13 +336,13 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter orderRemoveInput: (body)  
-     - returns: RequestBuilder<Order> 
+     - parameter moaOrderRemoveInput: (body)  
+     - returns: RequestBuilder<MoaOrder> 
      */
-    open class func removeFromCurrentOrderWithRequestBuilder(orderRemoveInput: OrderRemoveInput) -> RequestBuilder<Order> {
+    open class func removeFromCurrentOrderWithRequestBuilder(moaOrderRemoveInput: MoaOrderRemoveInput) -> RequestBuilder<MoaOrder> {
         let path = "/v1/orders/current/remove"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: orderRemoveInput)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderRemoveInput)
 
         let url = URLComponents(string: URLString)
 
@@ -352,7 +352,7 @@ open class OrdersAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<Order>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }

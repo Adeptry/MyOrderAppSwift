@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareAddress: Codable, Hashable {
+@objc public class SquareAddress: NSObject, Codable {
 
     public var addressLine1: String?
     public var addressLine2: String?

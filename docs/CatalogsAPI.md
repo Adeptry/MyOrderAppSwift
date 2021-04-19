@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **getCatalogForCurrentCustomer**
 ```swift
-    open class func getCatalogForCurrentCustomer(completion: @escaping (_ data: Catalog?, _ error: Error?) -> Void)
+    open class func getCatalogForCurrentCustomer(completion: @escaping (_ data: MoaCatalog?, _ error: Error?) -> Void)
 ```
 
 
@@ -37,7 +37,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Catalog**](Catalog.md)
+[**MoaCatalog**](MoaCatalog.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SquareOrderLineItemDiscount: Codable, Hashable {
+@objc public class SquareOrderLineItemDiscount: NSObject, Codable {
 
     public var uid: String?
     public var catalogObjectId: String?

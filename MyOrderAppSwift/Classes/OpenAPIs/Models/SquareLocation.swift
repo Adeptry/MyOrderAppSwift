@@ -7,9 +7,9 @@
 
 import Foundation
 
-public class SquareLocation: Codable, Hashable {
+@objc public class SquareLocation: NSObject, Codable {
 
-    public var id: String?
+    public var _id: String?
     public var name: String?
     public var address: SquareAddress?
     public var timezone: String?
@@ -26,7 +26,7 @@ public class SquareLocation: Codable, Hashable {
     public var websiteUrl: String?
     public var businessHours: SquareBusinessHours?
     public var businessEmail: String?
-    public var description: String?
+    public var _description: String?
     public var twitterUsername: String?
     public var instagramUsername: String?
     public var facebookUrl: String?
@@ -36,8 +36,8 @@ public class SquareLocation: Codable, Hashable {
     public var mcc: String?
     public var fullFormatLogoUrl: String?
 
-    public init(id: String? = nil, name: String? = nil, address: SquareAddress? = nil, timezone: String? = nil, capabilities: [String]? = nil, status: String? = nil, createdAt: String? = nil, merchantId: String? = nil, country: String? = nil, languageCode: String? = nil, currency: String? = nil, phoneNumber: String? = nil, businessName: String? = nil, type: String? = nil, websiteUrl: String? = nil, businessHours: SquareBusinessHours? = nil, businessEmail: String? = nil, description: String? = nil, twitterUsername: String? = nil, instagramUsername: String? = nil, facebookUrl: String? = nil, coordinates: SquareCoordinates? = nil, logoUrl: String? = nil, posBackgroundUrl: String? = nil, mcc: String? = nil, fullFormatLogoUrl: String? = nil) {
-        self.id = id
+    public init(_id: String? = nil, name: String? = nil, address: SquareAddress? = nil, timezone: String? = nil, capabilities: [String]? = nil, status: String? = nil, createdAt: String? = nil, merchantId: String? = nil, country: String? = nil, languageCode: String? = nil, currency: String? = nil, phoneNumber: String? = nil, businessName: String? = nil, type: String? = nil, websiteUrl: String? = nil, businessHours: SquareBusinessHours? = nil, businessEmail: String? = nil, _description: String? = nil, twitterUsername: String? = nil, instagramUsername: String? = nil, facebookUrl: String? = nil, coordinates: SquareCoordinates? = nil, logoUrl: String? = nil, posBackgroundUrl: String? = nil, mcc: String? = nil, fullFormatLogoUrl: String? = nil) {
+        self._id = _id
         self.name = name
         self.address = address
         self.timezone = timezone
@@ -54,7 +54,7 @@ public class SquareLocation: Codable, Hashable {
         self.websiteUrl = websiteUrl
         self.businessHours = businessHours
         self.businessEmail = businessEmail
-        self.description = description
+        self._description = _description
         self.twitterUsername = twitterUsername
         self.instagramUsername = instagramUsername
         self.facebookUrl = facebookUrl
@@ -63,6 +63,35 @@ public class SquareLocation: Codable, Hashable {
         self.posBackgroundUrl = posBackgroundUrl
         self.mcc = mcc
         self.fullFormatLogoUrl = fullFormatLogoUrl
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case _id = "id"
+        case name
+        case address
+        case timezone
+        case capabilities
+        case status
+        case createdAt
+        case merchantId
+        case country
+        case languageCode
+        case currency
+        case phoneNumber
+        case businessName
+        case type
+        case websiteUrl
+        case businessHours
+        case businessEmail
+        case _description = "description"
+        case twitterUsername
+        case instagramUsername
+        case facebookUrl
+        case coordinates
+        case logoUrl
+        case posBackgroundUrl
+        case mcc
+        case fullFormatLogoUrl
     }
 
 }
