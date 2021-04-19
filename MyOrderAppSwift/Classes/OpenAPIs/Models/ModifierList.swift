@@ -7,23 +7,28 @@
 
 import Foundation
 
-public struct ModifierList: Codable {
+@objc public class ModifierList: NSObject, Codable {
 
     public var item: Item?
     public var modifiers: [Modifier]?
-    public var id: String?
+    public var _id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
     public var minSelectedModifiers: Double?
     public var maxSelectedModifiers: Double?
     public var enabled: Bool?
+    public var enabledNum: NSNumber? {
+        get {
+            return enabled as NSNumber?
+        }
+    }
     public var name: String?
 
-    public init(item: Item? = nil, modifiers: [Modifier]? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil) {
+    public init(item: Item? = nil, modifiers: [Modifier]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil) {
         self.item = item
         self.modifiers = modifiers
-        self.id = id
+        self._id = _id
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
@@ -31,6 +36,19 @@ public struct ModifierList: Codable {
         self.maxSelectedModifiers = maxSelectedModifiers
         self.enabled = enabled
         self.name = name
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case item
+        case modifiers
+        case _id = "id"
+        case createDate
+        case updateDate
+        case squareId
+        case minSelectedModifiers
+        case maxSelectedModifiers
+        case enabled
+        case name
     }
 
 }

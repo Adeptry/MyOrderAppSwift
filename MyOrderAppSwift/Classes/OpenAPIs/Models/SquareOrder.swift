@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct SquareOrder: Codable {
+@objc public class SquareOrder: NSObject, Codable {
 
-    public var id: String?
+    public var _id: String?
     public var locationId: String?
     public var referenceId: String?
     public var customerId: String?
@@ -34,8 +34,8 @@ public struct SquareOrder: Codable {
     public var totalTipMoney: SquareMoney?
     public var totalServiceChargeMoney: SquareMoney?
 
-    public init(id: String? = nil, locationId: String? = nil, referenceId: String? = nil, customerId: String? = nil, lineItems: [SquareOrderLineItem]? = nil, taxes: [SquareOrderLineItemTax]? = nil, discounts: [SquareOrderLineItemDiscount]? = nil, serviceCharges: [SquareOrderServiceCharge]? = nil, fulfillments: [SquareOrderFulfillment]? = nil, returnAmounts: SquareOrderMoneyAmounts? = nil, netAmounts: SquareOrderMoneyAmounts? = nil, roundingAdjustment: SquareOrderRoundingAdjustment? = nil, tenders: [SquareTender]? = nil, refunds: [SquareRefund]? = nil, createdAt: String? = nil, updatedAt: String? = nil, closedAt: String? = nil, state: String? = nil, version: Double? = nil, totalMoney: SquareMoney? = nil, totalTaxMoney: SquareMoney? = nil, totalDiscountMoney: SquareMoney? = nil, totalTipMoney: SquareMoney? = nil, totalServiceChargeMoney: SquareMoney? = nil) {
-        self.id = id
+    public init(_id: String? = nil, locationId: String? = nil, referenceId: String? = nil, customerId: String? = nil, lineItems: [SquareOrderLineItem]? = nil, taxes: [SquareOrderLineItemTax]? = nil, discounts: [SquareOrderLineItemDiscount]? = nil, serviceCharges: [SquareOrderServiceCharge]? = nil, fulfillments: [SquareOrderFulfillment]? = nil, returnAmounts: SquareOrderMoneyAmounts? = nil, netAmounts: SquareOrderMoneyAmounts? = nil, roundingAdjustment: SquareOrderRoundingAdjustment? = nil, tenders: [SquareTender]? = nil, refunds: [SquareRefund]? = nil, createdAt: String? = nil, updatedAt: String? = nil, closedAt: String? = nil, state: String? = nil, version: Double? = nil, totalMoney: SquareMoney? = nil, totalTaxMoney: SquareMoney? = nil, totalDiscountMoney: SquareMoney? = nil, totalTipMoney: SquareMoney? = nil, totalServiceChargeMoney: SquareMoney? = nil) {
+        self._id = _id
         self.locationId = locationId
         self.referenceId = referenceId
         self.customerId = customerId
@@ -59,6 +59,33 @@ public struct SquareOrder: Codable {
         self.totalDiscountMoney = totalDiscountMoney
         self.totalTipMoney = totalTipMoney
         self.totalServiceChargeMoney = totalServiceChargeMoney
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case _id = "id"
+        case locationId
+        case referenceId
+        case customerId
+        case lineItems
+        case taxes
+        case discounts
+        case serviceCharges
+        case fulfillments
+        case returnAmounts
+        case netAmounts
+        case roundingAdjustment
+        case tenders
+        case refunds
+        case createdAt
+        case updatedAt
+        case closedAt
+        case state
+        case version
+        case totalMoney
+        case totalTaxMoney
+        case totalDiscountMoney
+        case totalTipMoney
+        case totalServiceChargeMoney
     }
 
 }

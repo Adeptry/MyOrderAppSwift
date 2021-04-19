@@ -7,12 +7,16 @@
 
 import Foundation
 
-public struct CustomerUpdateInput: Codable {
+@objc public class CustomerUpdateInput: NSObject, Codable {
 
-    public var id: String?
+    public var _id: String?
 
-    public init(id: String? = nil) {
-        self.id = id
+    public init(_id: String? = nil) {
+        self._id = _id
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case _id = "id"
     }
 
 }

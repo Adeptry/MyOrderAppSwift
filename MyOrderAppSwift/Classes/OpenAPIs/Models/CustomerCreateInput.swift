@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CustomerCreateInput: Codable {
+@objc public class CustomerCreateInput: NSObject, Codable {
 
     public var email: String
     public var password: String

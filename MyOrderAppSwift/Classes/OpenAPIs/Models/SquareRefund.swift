@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct SquareRefund: Codable {
+@objc public class SquareRefund: NSObject, Codable {
 
-    public var id: String?
+    public var _id: String?
     public var locationId: String?
     public var transactionId: String?
     public var tenderId: String?
@@ -19,8 +19,8 @@ public struct SquareRefund: Codable {
     public var status: String?
     public var processingFeeMoney: SquareMoney?
 
-    public init(id: String? = nil, locationId: String? = nil, transactionId: String? = nil, tenderId: String? = nil, createdAt: String? = nil, reason: String? = nil, amountMoney: SquareMoney? = nil, status: String? = nil, processingFeeMoney: SquareMoney? = nil) {
-        self.id = id
+    public init(_id: String? = nil, locationId: String? = nil, transactionId: String? = nil, tenderId: String? = nil, createdAt: String? = nil, reason: String? = nil, amountMoney: SquareMoney? = nil, status: String? = nil, processingFeeMoney: SquareMoney? = nil) {
+        self._id = _id
         self.locationId = locationId
         self.transactionId = transactionId
         self.tenderId = tenderId
@@ -29,6 +29,18 @@ public struct SquareRefund: Codable {
         self.amountMoney = amountMoney
         self.status = status
         self.processingFeeMoney = processingFeeMoney
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case _id = "id"
+        case locationId
+        case transactionId
+        case tenderId
+        case createdAt
+        case reason
+        case amountMoney
+        case status
+        case processingFeeMoney
     }
 
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **accessToken** | **String** |  | [optional] 

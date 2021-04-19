@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **catalog** | [**Catalog**](Catalog.md) |  | [optional] 
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 

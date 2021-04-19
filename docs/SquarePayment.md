@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **createdAt** | **String** |  | [optional] 
 **updatedAt** | **String** |  | [optional] 
 **amountMoney** | [**SquareMoney**](SquareMoney.md) |  | [optional] 

@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct SquareCard: Codable {
+@objc public class SquareCard: NSObject, Codable {
 
-    public var id: String?
+    public var _id: String?
+    public var expMonth: Double?
+    public var expYear: Double?
     public var cardBrand: String?
     public var last4: String?
-    public var expMonth: Any?
-    public var expYear: Any?
     public var cardholderName: String?
     public var billingAddress: SquareAddress?
     public var fingerprint: String?
@@ -21,18 +21,32 @@ public struct SquareCard: Codable {
     public var prepaidType: String?
     public var bin: String?
 
-    public init(id: String? = nil, cardBrand: String? = nil, last4: String? = nil, expMonth: Any? = nil, expYear: Any? = nil, cardholderName: String? = nil, billingAddress: SquareAddress? = nil, fingerprint: String? = nil, cardType: String? = nil, prepaidType: String? = nil, bin: String? = nil) {
-        self.id = id
-        self.cardBrand = cardBrand
-        self.last4 = last4
+    public init(_id: String? = nil, expMonth: Double? = nil, expYear: Double? = nil, cardBrand: String? = nil, last4: String? = nil, cardholderName: String? = nil, billingAddress: SquareAddress? = nil, fingerprint: String? = nil, cardType: String? = nil, prepaidType: String? = nil, bin: String? = nil) {
+        self._id = _id
         self.expMonth = expMonth
         self.expYear = expYear
+        self.cardBrand = cardBrand
+        self.last4 = last4
         self.cardholderName = cardholderName
         self.billingAddress = billingAddress
         self.fingerprint = fingerprint
         self.cardType = cardType
         self.prepaidType = prepaidType
         self.bin = bin
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case _id = "id"
+        case expMonth
+        case expYear
+        case cardBrand
+        case last4
+        case cardholderName
+        case billingAddress
+        case fingerprint
+        case cardType
+        case prepaidType
+        case bin
     }
 
 }

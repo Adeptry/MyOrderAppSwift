@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
+**expMonth** | **Double** |  | [optional] 
+**expYear** | **Double** |  | [optional] 
 **cardBrand** | **String** |  | [optional] 
 **last4** | **String** |  | [optional] 
-**expMonth** | **Any** |  | [optional] 
-**expYear** | **Any** |  | [optional] 
 **cardholderName** | **String** |  | [optional] 
 **billingAddress** | [**SquareAddress**](SquareAddress.md) |  | [optional] 
 **fingerprint** | **String** |  | [optional] 

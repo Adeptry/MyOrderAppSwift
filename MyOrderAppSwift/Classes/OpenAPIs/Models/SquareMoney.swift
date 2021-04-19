@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct SquareMoney: Codable {
+@objc public class SquareMoney: NSObject, Codable {
 
-    public var amount: Any?
+    public var amount: Double?
     public var currency: String?
 
-    public init(amount: Any? = nil, currency: String? = nil) {
+    public init(amount: Double? = nil, currency: String? = nil) {
         self.amount = amount
         self.currency = currency
     }

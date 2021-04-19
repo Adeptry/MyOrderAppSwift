@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SquareOrderFulfillment: Codable {
+@objc public class SquareOrderFulfillment: NSObject, Codable {
 
     public var uid: String?
     public var type: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class OrdersAPI {
+@objc open class OrdersAPI : NSObject {
     /**
 
      - parameter orderAddInput: (body)  
@@ -227,12 +227,12 @@ open class OrdersAPI {
 
     /**
 
-     - parameter id: (path)  
+     - parameter _id: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getOrderWithId(id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
-        getOrderWithIdWithRequestBuilder(id: id).execute(apiResponseQueue) { result -> Void in
+    open class func getOrderWithId(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ data: Order?, _ error: Error?) -> Void)) {
+        getOrderWithIdWithRequestBuilder(_id: _id).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -247,14 +247,14 @@ open class OrdersAPI {
      - BASIC:
        - type: http
        - name: bearer
-     - parameter id: (path)  
+     - parameter _id: (path)  
      - returns: RequestBuilder<Order> 
      */
-    open class func getOrderWithIdWithRequestBuilder(id: String) -> RequestBuilder<Order> {
+    open class func getOrderWithIdWithRequestBuilder(_id: String) -> RequestBuilder<Order> {
         var path = "/v1/orders/{id}"
-        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
-        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let _idPreEscape = "\(APIHelper.mapValueToPathItem(_id))"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 

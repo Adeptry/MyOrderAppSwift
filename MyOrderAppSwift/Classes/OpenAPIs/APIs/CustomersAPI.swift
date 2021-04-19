@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class CustomersAPI {
+@objc open class CustomersAPI : NSObject {
     /**
 
      - parameter customerCreateInput: (body)  

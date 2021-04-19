@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct OrderPayInput: Codable {
+@objc public class OrderPayInput: NSObject, Codable {
 
     public var paymentSquareId: String
     public var idempotencyKey: String

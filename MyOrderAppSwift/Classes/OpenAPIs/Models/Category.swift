@@ -7,24 +7,34 @@
 
 import Foundation
 
-public struct Category: Codable {
+@objc public class Category: NSObject, Codable {
 
     public var catalog: Catalog?
     public var items: [Item]?
-    public var id: String?
+    public var _id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
     public var name: String?
 
-    public init(catalog: Catalog? = nil, items: [Item]? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil) {
+    public init(catalog: Catalog? = nil, items: [Item]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil) {
         self.catalog = catalog
         self.items = items
-        self.id = id
+        self._id = _id
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
         self.name = name
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case catalog
+        case items
+        case _id = "id"
+        case createDate
+        case updateDate
+        case squareId
+        case name
     }
 
 }

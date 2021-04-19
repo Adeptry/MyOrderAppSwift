@@ -111,7 +111,7 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let customerUpdateInput = CustomerUpdateInput(id: "id_example") // CustomerUpdateInput | 
+let customerUpdateInput = CustomerUpdateInput(_id: "_id_example") // CustomerUpdateInput | 
 
 CustomersAPI.updateCustomer(customerUpdateInput: customerUpdateInput) { (response, error) in
     guard error == nil else {

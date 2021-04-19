@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AuthenticationOutput: Codable {
+@objc public class AuthenticationOutput: NSObject, Codable {
 
     public enum UserType: String, Codable, CaseIterable {
         case administrator = "ADMINISTRATOR"

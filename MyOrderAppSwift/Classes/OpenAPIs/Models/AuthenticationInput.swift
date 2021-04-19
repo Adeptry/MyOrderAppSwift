@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AuthenticationInput: Codable {
+@objc public class AuthenticationInput: NSObject, Codable {
 
     public var email: String
     public var password: String

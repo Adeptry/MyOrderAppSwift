@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct OrderAddInput: Codable {
+@objc public class OrderAddInput: NSObject, Codable {
 
     public var squareVariationId: String
     public var quantity: Double

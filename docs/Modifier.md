@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modifierList** | [**ModifierList**](ModifierList.md) |  | [optional] 
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **squareId** | **String** |  | [optional] 

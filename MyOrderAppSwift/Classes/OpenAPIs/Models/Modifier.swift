@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct Modifier: Codable {
+@objc public class Modifier: NSObject, Codable {
 
     public var modifierList: ModifierList?
-    public var id: String?
+    public var _id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
@@ -18,15 +18,26 @@ public struct Modifier: Codable {
     public var priceInCents: Double?
     public var ordinal: Double?
 
-    public init(modifierList: ModifierList? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, ordinal: Double? = nil) {
+    public init(modifierList: ModifierList? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, ordinal: Double? = nil) {
         self.modifierList = modifierList
-        self.id = id
+        self._id = _id
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
         self.ordinal = ordinal
+    }
+
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case modifierList
+        case _id = "id"
+        case createDate
+        case updateDate
+        case squareId
+        case name
+        case priceInCents
+        case ordinal
     }
 
 }

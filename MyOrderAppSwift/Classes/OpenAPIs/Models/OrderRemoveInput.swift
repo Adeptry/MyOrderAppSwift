@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct OrderRemoveInput: Codable {
+@objc public class OrderRemoveInput: NSObject, Codable {
 
     public var orderVariationUid: String
 

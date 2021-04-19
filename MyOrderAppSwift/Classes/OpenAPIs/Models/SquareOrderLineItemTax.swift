@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SquareOrderLineItemTax: Codable {
+@objc public class SquareOrderLineItemTax: NSObject, Codable {
 
     public var uid: String?
     public var catalogObjectId: String?
@@ -17,6 +17,11 @@ public struct SquareOrderLineItemTax: Codable {
     public var appliedMoney: SquareMoney?
     public var scope: String?
     public var autoApplied: Bool?
+    public var autoAppliedNum: NSNumber? {
+        get {
+            return autoApplied as NSNumber?
+        }
+    }
 
     public init(uid: String? = nil, catalogObjectId: String? = nil, name: String? = nil, type: String? = nil, percentage: String? = nil, appliedMoney: SquareMoney? = nil, scope: String? = nil, autoApplied: Bool? = nil) {
         self.uid = uid

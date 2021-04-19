@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class AuthenticationAPI {
+@objc open class AuthenticationAPI : NSObject {
     /**
 
      - parameter authenticationInput: (body)  

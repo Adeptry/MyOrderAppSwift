@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SquareCoordinates: Codable {
+@objc public class SquareCoordinates: NSObject, Codable {
 
     public var latitude: Double?
     public var longitude: Double?
