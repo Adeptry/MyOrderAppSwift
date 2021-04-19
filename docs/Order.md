@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **squareOrder** | [**SquareOrder**](SquareOrder.md) |  | [optional] 
 **squarePayment** | [**SquarePayment**](SquarePayment.md) |  | [optional] 
 **customer** | [**Customer**](Customer.md) |  | [optional] 
-**_id** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **squareOrderId** | **String** |  | [optional] 

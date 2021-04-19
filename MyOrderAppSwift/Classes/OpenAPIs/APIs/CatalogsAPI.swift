@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc open class CatalogsAPI : NSObject {
+open class CatalogsAPI {
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.

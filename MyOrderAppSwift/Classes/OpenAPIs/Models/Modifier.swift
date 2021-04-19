@@ -7,10 +7,10 @@
 
 import Foundation
 
-@objc public class MOAModifier: NSObject, Codable {
+public class Modifier: Codable, Hashable {
 
     public var modifierList: ModifierList?
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
@@ -18,26 +18,15 @@ import Foundation
     public var priceInCents: Double?
     public var ordinal: Double?
 
-    public init(modifierList: ModifierList? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, ordinal: Double? = nil) {
+    public init(modifierList: ModifierList? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, ordinal: Double? = nil) {
         self.modifierList = modifierList
-        self._id = _id
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
         self.ordinal = ordinal
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case modifierList
-        case _id = "id"
-        case createDate
-        case updateDate
-        case squareId
-        case name
-        case priceInCents
-        case ordinal
     }
 
 }

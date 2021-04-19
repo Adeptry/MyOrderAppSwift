@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc open class MerchantsAPI : NSObject {
+open class MerchantsAPI {
     /**
 
      - parameter apiResponseQueue: The queue on which api response is dispatched.

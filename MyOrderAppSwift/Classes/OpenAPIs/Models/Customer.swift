@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc public class MOACustomer: NSObject, Codable {
+public class Customer: Codable, Hashable {
 
     public var currentOrder: Order?
     public var orders: [Order]?
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var email: String?
@@ -19,28 +19,16 @@ import Foundation
     public var merchantId: String?
     public var merchant: Merchant?
 
-    public init(currentOrder: Order? = nil, orders: [Order]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, squareId: String? = nil, merchantId: String? = nil, merchant: Merchant? = nil) {
+    public init(currentOrder: Order? = nil, orders: [Order]? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, squareId: String? = nil, merchantId: String? = nil, merchant: Merchant? = nil) {
         self.currentOrder = currentOrder
         self.orders = orders
-        self._id = _id
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
         self.email = email
         self.squareId = squareId
         self.merchantId = merchantId
         self.merchant = merchant
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case currentOrder
-        case orders
-        case _id = "id"
-        case createDate
-        case updateDate
-        case email
-        case squareId
-        case merchantId
-        case merchant
     }
 
 }

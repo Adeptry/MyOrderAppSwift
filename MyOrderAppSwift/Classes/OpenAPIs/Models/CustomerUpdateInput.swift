@@ -7,16 +7,12 @@
 
 import Foundation
 
-@objc public class MOACustomerUpdateInput: NSObject, Codable {
+public class CustomerUpdateInput: Codable, Hashable {
 
-    public var _id: String?
+    public var id: String?
 
-    public init(_id: String? = nil) {
-        self._id = _id
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
+    public init(id: String? = nil) {
+        self.id = id
     }
 
 }

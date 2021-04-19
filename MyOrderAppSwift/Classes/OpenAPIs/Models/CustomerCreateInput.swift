@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOACustomerCreateInput: NSObject, Codable {
+public class CustomerCreateInput: Codable, Hashable {
 
     public var email: String
     public var password: String

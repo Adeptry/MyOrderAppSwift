@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOAOrderPaginatedResponse: NSObject, Codable {
+public class OrderPaginatedResponse: Codable, Hashable {
 
     public var entities: [Order]?
     public var count: Double?

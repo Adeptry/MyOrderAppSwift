@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOASquareOrderLineItemTax: NSObject, Codable {
+public class SquareOrderLineItemTax: Codable, Hashable {
 
     public var uid: String?
     public var catalogObjectId: String?
@@ -17,11 +17,6 @@ import Foundation
     public var appliedMoney: SquareMoney?
     public var scope: String?
     public var autoApplied: Bool?
-    public var autoAppliedNum: NSNumber? {
-        get {
-            return autoApplied as NSNumber?
-        }
-    }
 
     public init(uid: String? = nil, catalogObjectId: String? = nil, name: String? = nil, type: String? = nil, percentage: String? = nil, appliedMoney: SquareMoney? = nil, scope: String? = nil, autoApplied: Bool? = nil) {
         self.uid = uid

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currentOrder** | [**Order**](Order.md) |  | [optional] 
 **orders** | [Order] |  | [optional] 
-**_id** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 

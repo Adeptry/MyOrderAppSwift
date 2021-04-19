@@ -7,9 +7,9 @@
 
 import Foundation
 
-@objc public class MOASquarePayment: NSObject, Codable {
+public class SquarePayment: Codable, Hashable {
 
-    public var _id: String?
+    public var id: String?
     public var createdAt: String?
     public var updatedAt: String?
     public var amountMoney: SquareMoney?
@@ -39,8 +39,8 @@ import Foundation
     public var receiptUrl: String?
     public var versionToken: String?
 
-    public init(_id: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, amountMoney: SquareMoney? = nil, tipMoney: SquareMoney? = nil, totalMoney: SquareMoney? = nil, appFeeMoney: SquareMoney? = nil, approvedMoney: SquareMoney? = nil, refundedMoney: SquareMoney? = nil, status: String? = nil, delayDuration: String? = nil, delayAction: String? = nil, delayedUntil: String? = nil, sourceType: String? = nil, locationId: String? = nil, orderId: String? = nil, referenceId: String? = nil, customerId: String? = nil, employeeId: String? = nil, refundIds: [String]? = nil, buyerEmailAddress: String? = nil, billingAddress: SquareAddress? = nil, shippingAddress: SquareAddress? = nil, note: String? = nil, statementDescriptionIdentifier: String? = nil, capabilities: [String]? = nil, receiptNumber: String? = nil, receiptUrl: String? = nil, versionToken: String? = nil) {
-        self._id = _id
+    public init(id: String? = nil, createdAt: String? = nil, updatedAt: String? = nil, amountMoney: SquareMoney? = nil, tipMoney: SquareMoney? = nil, totalMoney: SquareMoney? = nil, appFeeMoney: SquareMoney? = nil, approvedMoney: SquareMoney? = nil, refundedMoney: SquareMoney? = nil, status: String? = nil, delayDuration: String? = nil, delayAction: String? = nil, delayedUntil: String? = nil, sourceType: String? = nil, locationId: String? = nil, orderId: String? = nil, referenceId: String? = nil, customerId: String? = nil, employeeId: String? = nil, refundIds: [String]? = nil, buyerEmailAddress: String? = nil, billingAddress: SquareAddress? = nil, shippingAddress: SquareAddress? = nil, note: String? = nil, statementDescriptionIdentifier: String? = nil, capabilities: [String]? = nil, receiptNumber: String? = nil, receiptUrl: String? = nil, versionToken: String? = nil) {
+        self.id = id
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.amountMoney = amountMoney
@@ -69,38 +69,6 @@ import Foundation
         self.receiptNumber = receiptNumber
         self.receiptUrl = receiptUrl
         self.versionToken = versionToken
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
-        case createdAt
-        case updatedAt
-        case amountMoney
-        case tipMoney
-        case totalMoney
-        case appFeeMoney
-        case approvedMoney
-        case refundedMoney
-        case status
-        case delayDuration
-        case delayAction
-        case delayedUntil
-        case sourceType
-        case locationId
-        case orderId
-        case referenceId
-        case customerId
-        case employeeId
-        case refundIds
-        case buyerEmailAddress
-        case billingAddress
-        case shippingAddress
-        case note
-        case statementDescriptionIdentifier
-        case capabilities
-        case receiptNumber
-        case receiptUrl
-        case versionToken
     }
 
 }

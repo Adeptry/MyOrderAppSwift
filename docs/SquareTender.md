@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **locationId** | **String** |  | [optional] 
 **transactionId** | **String** |  | [optional] 
 **createdAt** | **String** |  | [optional] 

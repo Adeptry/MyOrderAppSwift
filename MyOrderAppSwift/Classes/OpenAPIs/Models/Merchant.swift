@@ -7,10 +7,10 @@
 
 import Foundation
 
-@objc public class MOAMerchant: NSObject, Codable {
+public class Merchant: Codable, Hashable {
 
     public var catalog: Catalog?
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var email: String?
@@ -23,9 +23,9 @@ import Foundation
     public var squareAccessTokenId: String?
     public var squareAccessToken: SquareAccessToken?
 
-    public init(catalog: Catalog? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, password: String, firstName: String? = nil, lastName: String? = nil, phoneNumber: String? = nil, stripeId: String? = nil, stripeCheckoutSessionId: String? = nil, squareAccessTokenId: String? = nil, squareAccessToken: SquareAccessToken? = nil) {
+    public init(catalog: Catalog? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, password: String, firstName: String? = nil, lastName: String? = nil, phoneNumber: String? = nil, stripeId: String? = nil, stripeCheckoutSessionId: String? = nil, squareAccessTokenId: String? = nil, squareAccessToken: SquareAccessToken? = nil) {
         self.catalog = catalog
-        self._id = _id
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
         self.email = email
@@ -37,22 +37,6 @@ import Foundation
         self.stripeCheckoutSessionId = stripeCheckoutSessionId
         self.squareAccessTokenId = squareAccessTokenId
         self.squareAccessToken = squareAccessToken
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case catalog
-        case _id = "id"
-        case createDate
-        case updateDate
-        case email
-        case password
-        case firstName
-        case lastName
-        case phoneNumber
-        case stripeId
-        case stripeCheckoutSessionId
-        case squareAccessTokenId
-        case squareAccessToken
     }
 
 }

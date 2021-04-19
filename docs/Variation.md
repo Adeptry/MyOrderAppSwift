@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item** | [**Item**](Item.md) |  | [optional] 
-**_id** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **squareId** | **String** |  | [optional] 

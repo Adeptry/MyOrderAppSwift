@@ -7,9 +7,9 @@
 
 import Foundation
 
-@objc public class MOASquareCard: NSObject, Codable {
+public class SquareCard: Codable, Hashable {
 
-    public var _id: String?
+    public var id: String?
     public var expMonth: Double?
     public var expYear: Double?
     public var cardBrand: String?
@@ -21,8 +21,8 @@ import Foundation
     public var prepaidType: String?
     public var bin: String?
 
-    public init(_id: String? = nil, expMonth: Double? = nil, expYear: Double? = nil, cardBrand: String? = nil, last4: String? = nil, cardholderName: String? = nil, billingAddress: SquareAddress? = nil, fingerprint: String? = nil, cardType: String? = nil, prepaidType: String? = nil, bin: String? = nil) {
-        self._id = _id
+    public init(id: String? = nil, expMonth: Double? = nil, expYear: Double? = nil, cardBrand: String? = nil, last4: String? = nil, cardholderName: String? = nil, billingAddress: SquareAddress? = nil, fingerprint: String? = nil, cardType: String? = nil, prepaidType: String? = nil, bin: String? = nil) {
+        self.id = id
         self.expMonth = expMonth
         self.expYear = expYear
         self.cardBrand = cardBrand
@@ -33,20 +33,6 @@ import Foundation
         self.cardType = cardType
         self.prepaidType = prepaidType
         self.bin = bin
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
-        case expMonth
-        case expYear
-        case cardBrand
-        case last4
-        case cardholderName
-        case billingAddress
-        case fingerprint
-        case cardType
-        case prepaidType
-        case bin
     }
 
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc open class SquareAPI : NSObject {
+open class SquareAPI {
     /**
 
      - parameter squareCreateCustomerCardInput: (body)  

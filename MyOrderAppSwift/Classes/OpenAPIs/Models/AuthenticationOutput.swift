@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOAAuthenticationOutput: NSObject, Codable {
+public class AuthenticationOutput: Codable, Hashable {
 
     public enum UserType: String, Codable, CaseIterable {
         case administrator = "ADMINISTRATOR"

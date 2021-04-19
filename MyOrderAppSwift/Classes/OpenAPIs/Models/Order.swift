@@ -7,12 +7,12 @@
 
 import Foundation
 
-@objc public class MOAOrder: NSObject, Codable {
+public class Order: Codable, Hashable {
 
     public var squareOrder: SquareOrder?
     public var squarePayment: SquarePayment?
     public var customer: Customer?
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareOrderId: String?
@@ -21,11 +21,11 @@ import Foundation
     public var customerId: String?
     public var merchant: Merchant?
 
-    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: Customer? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squareLocationId: String? = nil, squarePaymentId: String? = nil, customerId: String? = nil, merchant: Merchant? = nil) {
+    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: Customer? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squareLocationId: String? = nil, squarePaymentId: String? = nil, customerId: String? = nil, merchant: Merchant? = nil) {
         self.squareOrder = squareOrder
         self.squarePayment = squarePayment
         self.customer = customer
-        self._id = _id
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareOrderId = squareOrderId
@@ -33,20 +33,6 @@ import Foundation
         self.squarePaymentId = squarePaymentId
         self.customerId = customerId
         self.merchant = merchant
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case squareOrder
-        case squarePayment
-        case customer
-        case _id = "id"
-        case createDate
-        case updateDate
-        case squareOrderId
-        case squareLocationId
-        case squarePaymentId
-        case customerId
-        case merchant
     }
 
 }

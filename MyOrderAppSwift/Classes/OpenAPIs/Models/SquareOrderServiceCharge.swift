@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOASquareOrderServiceCharge: NSObject, Codable {
+public class SquareOrderServiceCharge: Codable, Hashable {
 
     public var uid: String?
     public var name: String?
@@ -19,11 +19,6 @@ import Foundation
     public var totalTaxMoney: SquareMoney?
     public var calculationPhase: String?
     public var taxable: Bool?
-    public var taxableNum: NSNumber? {
-        get {
-            return taxable as NSNumber?
-        }
-    }
 
     public init(uid: String? = nil, name: String? = nil, catalogObjectId: String? = nil, percentage: String? = nil, amountMoney: SquareMoney? = nil, appliedMoney: SquareMoney? = nil, totalMoney: SquareMoney? = nil, totalTaxMoney: SquareMoney? = nil, calculationPhase: String? = nil, taxable: Bool? = nil) {
         self.uid = uid

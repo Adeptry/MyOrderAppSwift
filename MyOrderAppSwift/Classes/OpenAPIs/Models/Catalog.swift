@@ -7,28 +7,20 @@
 
 import Foundation
 
-@objc public class MOACatalog: NSObject, Codable {
+public class Catalog: Codable, Hashable {
 
     public var categories: [Category]?
     public var merchant: Merchant?
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
 
-    public init(categories: [Category]? = nil, merchant: Merchant? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil) {
+    public init(categories: [Category]? = nil, merchant: Merchant? = nil, id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil) {
         self.categories = categories
         self.merchant = merchant
-        self._id = _id
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case categories
-        case merchant
-        case _id = "id"
-        case createDate
-        case updateDate
     }
 
 }

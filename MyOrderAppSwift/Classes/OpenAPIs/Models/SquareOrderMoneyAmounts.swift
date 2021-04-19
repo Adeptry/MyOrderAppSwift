@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOASquareOrderMoneyAmounts: NSObject, Codable {
+public class SquareOrderMoneyAmounts: Codable, Hashable {
 
     public var totalMoney: SquareMoney?
     public var taxMoney: SquareMoney?

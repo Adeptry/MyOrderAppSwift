@@ -7,9 +7,9 @@
 
 import Foundation
 
-@objc public class MOASquareAccessToken: NSObject, Codable {
+public class SquareAccessToken: Codable, Hashable {
 
-    public var _id: String?
+    public var id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var accessToken: String?
@@ -18,15 +18,10 @@ import Foundation
     public var merchantId: String?
     public var refreshToken: String?
     public var shortLived: Bool?
-    public var shortLivedNum: NSNumber? {
-        get {
-            return shortLived as NSNumber?
-        }
-    }
     public var merchant: Merchant?
 
-    public init(_id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, accessToken: String? = nil, tokenType: String? = nil, expiresAt: String? = nil, merchantId: String? = nil, refreshToken: String? = nil, shortLived: Bool? = nil, merchant: Merchant? = nil) {
-        self._id = _id
+    public init(id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, accessToken: String? = nil, tokenType: String? = nil, expiresAt: String? = nil, merchantId: String? = nil, refreshToken: String? = nil, shortLived: Bool? = nil, merchant: Merchant? = nil) {
+        self.id = id
         self.createDate = createDate
         self.updateDate = updateDate
         self.accessToken = accessToken
@@ -36,19 +31,6 @@ import Foundation
         self.refreshToken = refreshToken
         self.shortLived = shortLived
         self.merchant = merchant
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
-        case createDate
-        case updateDate
-        case accessToken
-        case tokenType
-        case expiresAt
-        case merchantId
-        case refreshToken
-        case shortLived
-        case merchant
     }
 
 }

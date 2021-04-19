@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 **expMonth** | **Double** |  | [optional] 
 **expYear** | **Double** |  | [optional] 
 **cardBrand** | **String** |  | [optional] 

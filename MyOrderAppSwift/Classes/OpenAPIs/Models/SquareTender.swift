@@ -7,9 +7,9 @@
 
 import Foundation
 
-@objc public class MOASquareTender: NSObject, Codable {
+public class SquareTender: Codable, Hashable {
 
-    public var _id: String?
+    public var id: String?
     public var locationId: String?
     public var transactionId: String?
     public var createdAt: String?
@@ -21,8 +21,8 @@ import Foundation
     public var type: String?
     public var paymentId: String?
 
-    public init(_id: String? = nil, locationId: String? = nil, transactionId: String? = nil, createdAt: String? = nil, note: String? = nil, amountMoney: SquareMoney? = nil, tipMoney: SquareMoney? = nil, processingFeeMoney: SquareMoney? = nil, customerId: String? = nil, type: String? = nil, paymentId: String? = nil) {
-        self._id = _id
+    public init(id: String? = nil, locationId: String? = nil, transactionId: String? = nil, createdAt: String? = nil, note: String? = nil, amountMoney: SquareMoney? = nil, tipMoney: SquareMoney? = nil, processingFeeMoney: SquareMoney? = nil, customerId: String? = nil, type: String? = nil, paymentId: String? = nil) {
+        self.id = id
         self.locationId = locationId
         self.transactionId = transactionId
         self.createdAt = createdAt
@@ -33,20 +33,6 @@ import Foundation
         self.customerId = customerId
         self.type = type
         self.paymentId = paymentId
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
-        case locationId
-        case transactionId
-        case createdAt
-        case note
-        case amountMoney
-        case tipMoney
-        case processingFeeMoney
-        case customerId
-        case type
-        case paymentId
     }
 
 }

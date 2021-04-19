@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOASquareCreateCustomerCardOutput: NSObject, Codable {
+public class SquareCreateCustomerCardOutput: Codable, Hashable {
 
     public var errors: [SquareError]?
     public var card: SquareCard?

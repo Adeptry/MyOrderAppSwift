@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOAAuthenticationInput: NSObject, Codable {
+public class AuthenticationInput: Codable, Hashable {
 
     public var email: String
     public var password: String

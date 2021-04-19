@@ -7,7 +7,7 @@
 
 import Foundation
 
-@objc public class MOASquareCoordinates: NSObject, Codable {
+public class SquareCoordinates: Codable, Hashable {
 
     public var latitude: Double?
     public var longitude: Double?

@@ -245,7 +245,7 @@ This endpoint does not need any parameter.
 
 # **getOrderWithId**
 ```swift
-    open class func getOrderWithId(_id: String, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
+    open class func getOrderWithId(id: String, completion: @escaping (_ data: Order?, _ error: Error?) -> Void)
 ```
 
 
@@ -255,9 +255,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let _id = "_id_example" // String | 
+let id = "id_example" // String | 
 
-OrdersAPI.getOrderWithId(_id: _id) { (response, error) in
+OrdersAPI.getOrderWithId(id: id) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -273,7 +273,7 @@ OrdersAPI.getOrderWithId(_id: _id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_id** | **String** |  | 
+ **id** | **String** |  | 
 
 ### Return type
 
