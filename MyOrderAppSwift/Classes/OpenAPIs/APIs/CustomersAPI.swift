@@ -95,8 +95,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
-        updateCustomerWithRequestBuilder(moaCustomerUpdateInput: moaCustomerUpdateInput).execute(apiResponseQueue) { result -> Void in
+    open class func updateCurrentCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
+        updateCurrentCustomerWithRequestBuilder(moaCustomerUpdateInput: moaCustomerUpdateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -107,11 +107,14 @@ import Foundation
     }
 
     /**
-     - PUT /v1/customers/current
+     - PATCH /v1/customers/current
+     - BASIC:
+       - type: http
+       - name: bearer
      - parameter moaCustomerUpdateInput: (body)  
      - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func updateCustomerWithRequestBuilder(moaCustomerUpdateInput: MoaCustomerUpdateInput) -> RequestBuilder<MoaCustomer> {
+    open class func updateCurrentCustomerWithRequestBuilder(moaCustomerUpdateInput: MoaCustomerUpdateInput) -> RequestBuilder<MoaCustomer> {
         let path = "/v1/customers/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaCustomerUpdateInput)
@@ -126,7 +129,7 @@ import Foundation
 
         let requestBuilder: RequestBuilder<MoaCustomer>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "PATCH", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

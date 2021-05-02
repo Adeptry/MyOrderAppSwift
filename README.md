@@ -26,22 +26,23 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationAPI* | [**postAuthentication**](docs/AuthenticationAPI.md#postauthentication) | **POST** /v1/authentication | 
-*CatalogsAPI* | [**getCatalogForCurrentCustomer**](docs/CatalogsAPI.md#getcatalogforcurrentcustomer) | **GET** /v1/catalogs/current | 
+*CardsAPI* | [**createCardForCurrentCustomer**](docs/CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
+*CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
+*CardsAPI* | [**getCardsForCurrentCustomer**](docs/CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
+*CatalogAPI* | [**getCurrentCustomersMerchantsCatalog**](docs/CatalogAPI.md#getcurrentcustomersmerchantscatalog) | **GET** /v1/customers/current/merchant/catalog | 
+*CatalogAPI* | [**getMerchantCatalog**](docs/CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{id}/catalog | 
 *CustomersAPI* | [**createCustomer**](docs/CustomersAPI.md#createcustomer) | **POST** /v1/customers | 
 *CustomersAPI* | [**getCurrentCustomer**](docs/CustomersAPI.md#getcurrentcustomer) | **GET** /v1/customers/current | 
-*CustomersAPI* | [**updateCustomer**](docs/CustomersAPI.md#updatecustomer) | **PUT** /v1/customers/current | 
-*MerchantsAPI* | [**getSquareLocationForCurrentCustomersMerchant**](docs/MerchantsAPI.md#getsquarelocationforcurrentcustomersmerchant) | **GET** /v1/merchants/current/square/locations | 
-*OrdersAPI* | [**addToCurrentOrder**](docs/OrdersAPI.md#addtocurrentorder) | **POST** /v1/orders/current/add | 
-*OrdersAPI* | [**createOrder**](docs/OrdersAPI.md#createorder) | **POST** /v1/orders/current | 
-*OrdersAPI* | [**deleteCurrentOrder**](docs/OrdersAPI.md#deletecurrentorder) | **DELETE** /v1/orders/current | 
-*OrdersAPI* | [**getCurrentCustomerOrders**](docs/OrdersAPI.md#getcurrentcustomerorders) | **GET** /v1/orders | 
-*OrdersAPI* | [**getCurrentOrder**](docs/OrdersAPI.md#getcurrentorder) | **GET** /v1/orders/current | 
-*OrdersAPI* | [**getOrderWithId**](docs/OrdersAPI.md#getorderwithid) | **GET** /v1/orders/{id} | 
-*OrdersAPI* | [**payForCurrentOrder**](docs/OrdersAPI.md#payforcurrentorder) | **PUT** /v1/orders/current/pay | 
-*OrdersAPI* | [**removeFromCurrentOrder**](docs/OrdersAPI.md#removefromcurrentorder) | **POST** /v1/orders/current/remove | 
-*SquareAPI* | [**createSquareCardForCurrentCustomer**](docs/SquareAPI.md#createsquarecardforcurrentcustomer) | **POST** /v1/square/cards | 
-*SquareAPI* | [**deleteSquareCardForCurrentCustomer**](docs/SquareAPI.md#deletesquarecardforcurrentcustomer) | **DELETE** /v1/square/cards | 
-*SquareAPI* | [**getSquareCardsForCurrentCustomer**](docs/SquareAPI.md#getsquarecardsforcurrentcustomer) | **GET** /v1/square/cards | 
+*CustomersAPI* | [**updateCurrentCustomer**](docs/CustomersAPI.md#updatecurrentcustomer) | **PATCH** /v1/customers/current | 
+*LocationsAPI* | [**getCurrentCustomersMerchantsLocations**](docs/LocationsAPI.md#getcurrentcustomersmerchantslocations) | **GET** /v1/customers/current/merchant/locations | 
+*LocationsAPI* | [**getMerchantLocations**](docs/LocationsAPI.md#getmerchantlocations) | **GET** /v1/merchants/{id}/locations | 
+*OrdersAPI* | [**addVariationToCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#addvariationtocurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/variation | 
+*OrdersAPI* | [**createOrderForCurrentCustomer**](docs/OrdersAPI.md#createorderforcurrentcustomer) | **POST** /v1/customers/current/orders/current | 
+*OrdersAPI* | [**deleteCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#deletecurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current | 
+*OrdersAPI* | [**getCurrentCustomerOrders**](docs/OrdersAPI.md#getcurrentcustomerorders) | **GET** /v1/customers/current/orders | 
+*OrdersAPI* | [**getCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#getcurrentcustomerscurrentorder) | **GET** /v1/customers/current/orders/current | 
+*OrdersAPI* | [**payForCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#payforcurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/payment | 
+*OrdersAPI* | [**removeVariationFromCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation | 
 
 
 ## Documentation For Models
@@ -53,7 +54,9 @@ Class | Method | HTTP request | Description
  - [MoaCustomer](docs/MoaCustomer.md)
  - [MoaCustomerCreateInput](docs/MoaCustomerCreateInput.md)
  - [MoaCustomerUpdateInput](docs/MoaCustomerUpdateInput.md)
+ - [MoaError](docs/MoaError.md)
  - [MoaItem](docs/MoaItem.md)
+ - [MoaLocation](docs/MoaLocation.md)
  - [MoaMerchant](docs/MoaMerchant.md)
  - [MoaModifier](docs/MoaModifier.md)
  - [MoaModifierList](docs/MoaModifierList.md)
@@ -63,18 +66,11 @@ Class | Method | HTTP request | Description
  - [MoaOrderPaginatedResponse](docs/MoaOrderPaginatedResponse.md)
  - [MoaOrderPayInput](docs/MoaOrderPayInput.md)
  - [MoaOrderRemoveInput](docs/MoaOrderRemoveInput.md)
- - [MoaSquareAccessToken](docs/MoaSquareAccessToken.md)
  - [MoaVariation](docs/MoaVariation.md)
  - [SquareAddress](docs/SquareAddress.md)
- - [SquareBusinessHours](docs/SquareBusinessHours.md)
- - [SquareBusinessHoursPeriod](docs/SquareBusinessHoursPeriod.md)
  - [SquareCard](docs/SquareCard.md)
- - [SquareCoordinates](docs/SquareCoordinates.md)
  - [SquareCreateCustomerCardInput](docs/SquareCreateCustomerCardInput.md)
- - [SquareCreateCustomerCardOutput](docs/SquareCreateCustomerCardOutput.md)
  - [SquareDeleteCustomerCardInput](docs/SquareDeleteCustomerCardInput.md)
- - [SquareError](docs/SquareError.md)
- - [SquareLocation](docs/SquareLocation.md)
  - [SquareMoney](docs/SquareMoney.md)
  - [SquareOrder](docs/SquareOrder.md)
  - [SquareOrderFulfillment](docs/SquareOrderFulfillment.md)

@@ -1,17 +1,17 @@
-# SquareAPI
+# CardsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSquareCardForCurrentCustomer**](SquareAPI.md#createsquarecardforcurrentcustomer) | **POST** /v1/square/cards | 
-[**deleteSquareCardForCurrentCustomer**](SquareAPI.md#deletesquarecardforcurrentcustomer) | **DELETE** /v1/square/cards | 
-[**getSquareCardsForCurrentCustomer**](SquareAPI.md#getsquarecardsforcurrentcustomer) | **GET** /v1/square/cards | 
+[**createCardForCurrentCustomer**](CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
+[**deleteCardForCurrentCustomer**](CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
+[**getCardsForCurrentCustomer**](CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
 
 
-# **createSquareCardForCurrentCustomer**
+# **createCardForCurrentCustomer**
 ```swift
-    open class func createSquareCardForCurrentCustomer(squareCreateCustomerCardInput: SquareCreateCustomerCardInput, completion: @escaping (_ data: SquareCreateCustomerCardOutput?, _ error: Error?) -> Void)
+    open class func createCardForCurrentCustomer(squareCreateCustomerCardInput: SquareCreateCustomerCardInput, completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
 ```
 
 
@@ -23,7 +23,7 @@ import MyOrderAppSwift
 
 let squareCreateCustomerCardInput = SquareCreateCustomerCardInput(cardNonce: "cardNonce_example", billingAddress: SquareAddress(addressLine1: "addressLine1_example", addressLine2: "addressLine2_example", addressLine3: "addressLine3_example", locality: "locality_example", sublocality: "sublocality_example", sublocality2: "sublocality2_example", sublocality3: "sublocality3_example", administrativeDistrictLevel1: "administrativeDistrictLevel1_example", administrativeDistrictLevel2: "administrativeDistrictLevel2_example", administrativeDistrictLevel3: "administrativeDistrictLevel3_example", postalCode: "postalCode_example", country: "country_example", firstName: "firstName_example", lastName: "lastName_example", organization: "organization_example"), cardholderName: "cardholderName_example") // SquareCreateCustomerCardInput | 
 
-SquareAPI.createSquareCardForCurrentCustomer(squareCreateCustomerCardInput: squareCreateCustomerCardInput) { (response, error) in
+CardsAPI.createCardForCurrentCustomer(squareCreateCustomerCardInput: squareCreateCustomerCardInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SquareCreateCustomerCardOutput**](SquareCreateCustomerCardOutput.md)
+[**[SquareCard]**](SquareCard.md)
 
 ### Authorization
 
@@ -56,9 +56,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteSquareCardForCurrentCustomer**
+# **deleteCardForCurrentCustomer**
 ```swift
-    open class func deleteSquareCardForCurrentCustomer(squareDeleteCustomerCardInput: SquareDeleteCustomerCardInput, completion: @escaping (_ data: [SquareError]?, _ error: Error?) -> Void)
+    open class func deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: SquareDeleteCustomerCardInput, completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
 ```
 
 
@@ -70,7 +70,7 @@ import MyOrderAppSwift
 
 let squareDeleteCustomerCardInput = SquareDeleteCustomerCardInput(squareCardId: "squareCardId_example") // SquareDeleteCustomerCardInput | 
 
-SquareAPI.deleteSquareCardForCurrentCustomer(squareDeleteCustomerCardInput: squareDeleteCustomerCardInput) { (response, error) in
+CardsAPI.deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: squareDeleteCustomerCardInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[SquareError]**](SquareError.md)
+[**[SquareCard]**](SquareCard.md)
 
 ### Authorization
 
@@ -103,9 +103,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getSquareCardsForCurrentCustomer**
+# **getCardsForCurrentCustomer**
 ```swift
-    open class func getSquareCardsForCurrentCustomer(completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
+    open class func getCardsForCurrentCustomer(completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
 ```
 
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 import MyOrderAppSwift
 
 
-SquareAPI.getSquareCardsForCurrentCustomer() { (response, error) in
+CardsAPI.getCardsForCurrentCustomer() { (response, error) in
     guard error == nil else {
         print(error)
         return

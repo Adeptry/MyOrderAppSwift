@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCustomer**](CustomersAPI.md#createcustomer) | **POST** /v1/customers | 
 [**getCurrentCustomer**](CustomersAPI.md#getcurrentcustomer) | **GET** /v1/customers/current | 
-[**updateCustomer**](CustomersAPI.md#updatecustomer) | **PUT** /v1/customers/current | 
+[**updateCurrentCustomer**](CustomersAPI.md#updatecurrentcustomer) | **PATCH** /v1/customers/current | 
 
 
 # **createCustomer**
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaCustomerCreateInput = MoaCustomerCreateInput(email: "email_example", password: "password_example", merchantId: "merchantId_example") // MoaCustomerCreateInput | 
+let moaCustomerCreateInput = MoaCustomerCreateInput(email: "", password: "password_example", merchantId: "merchantId_example") // MoaCustomerCreateInput | 
 
 CustomersAPI.createCustomer(moaCustomerCreateInput: moaCustomerCreateInput) { (response, error) in
     guard error == nil else {
@@ -99,9 +99,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **updateCustomer**
+# **updateCurrentCustomer**
 ```swift
-    open class func updateCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
+    open class func updateCurrentCustomer(moaCustomerUpdateInput: MoaCustomerUpdateInput, completion: @escaping (_ data: MoaCustomer?, _ error: Error?) -> Void)
 ```
 
 
@@ -111,9 +111,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaCustomerUpdateInput = MoaCustomerUpdateInput(_id: "_id_example") // MoaCustomerUpdateInput | 
+let moaCustomerUpdateInput = MoaCustomerUpdateInput(email: "email_example", phoneNumber: "phoneNumber_example", password: "password_example") // MoaCustomerUpdateInput | 
 
-CustomersAPI.updateCustomer(moaCustomerUpdateInput: moaCustomerUpdateInput) { (response, error) in
+CustomersAPI.updateCurrentCustomer(moaCustomerUpdateInput: moaCustomerUpdateInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

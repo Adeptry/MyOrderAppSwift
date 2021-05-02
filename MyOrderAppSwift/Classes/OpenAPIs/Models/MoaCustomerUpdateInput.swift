@@ -9,14 +9,14 @@ import Foundation
 
 @objc public class MoaCustomerUpdateInput: NSObject, Codable {
 
-    public var _id: String?
+    public var email: String?
+    public var phoneNumber: String?
+    public var password: String
 
-    public init(_id: String? = nil) {
-        self._id = _id
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
+    public init(email: String? = nil, phoneNumber: String? = nil, password: String) {
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.password = password
     }
 
 }

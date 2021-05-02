@@ -9,36 +9,39 @@ import Foundation
 
 @objc public class MoaCustomer: NSObject, Codable {
 
+    public var accessToken: String?
     public var currentOrder: MoaOrder?
     public var orders: [MoaOrder]?
     public var _id: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var email: String?
-    public var squareId: String?
+    public var phoneNumber: String?
     public var merchantId: String?
     public var merchant: MoaMerchant?
 
-    public init(currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, squareId: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil) {
+    public init(accessToken: String? = nil, currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, phoneNumber: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil) {
+        self.accessToken = accessToken
         self.currentOrder = currentOrder
         self.orders = orders
         self._id = _id
         self.createDate = createDate
         self.updateDate = updateDate
         self.email = email
-        self.squareId = squareId
+        self.phoneNumber = phoneNumber
         self.merchantId = merchantId
         self.merchant = merchant
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case accessToken
         case currentOrder
         case orders
         case _id = "id"
         case createDate
         case updateDate
         case email
-        case squareId
+        case phoneNumber
         case merchantId
         case merchant
     }

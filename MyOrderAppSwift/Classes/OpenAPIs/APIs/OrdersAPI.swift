@@ -14,8 +14,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func addToCurrentOrder(moaOrderAddInput: MoaOrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        addToCurrentOrderWithRequestBuilder(moaOrderAddInput: moaOrderAddInput).execute(apiResponseQueue) { result -> Void in
+    open class func addVariationToCurrentCustomersCurrentOrder(moaOrderAddInput: MoaOrderAddInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        addVariationToCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderAddInput: moaOrderAddInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -26,15 +26,15 @@ import Foundation
     }
 
     /**
-     - POST /v1/orders/current/add
+     - PUT /v1/customers/current/orders/current/variation
      - BASIC:
        - type: http
        - name: bearer
      - parameter moaOrderAddInput: (body)  
      - returns: RequestBuilder<MoaOrder> 
      */
-    open class func addToCurrentOrderWithRequestBuilder(moaOrderAddInput: MoaOrderAddInput) -> RequestBuilder<MoaOrder> {
-        let path = "/v1/orders/current/add"
+    open class func addVariationToCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderAddInput: MoaOrderAddInput) -> RequestBuilder<MoaOrder> {
+        let path = "/v1/customers/current/orders/current/variation"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderAddInput)
 
@@ -48,7 +48,7 @@ import Foundation
 
         let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -57,8 +57,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func createOrder(moaOrderCreateInput: MoaOrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
-        createOrderWithRequestBuilder(moaOrderCreateInput: moaOrderCreateInput).execute(apiResponseQueue) { result -> Void in
+    open class func createOrderForCurrentCustomer(moaOrderCreateInput: MoaOrderCreateInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
+        createOrderForCurrentCustomerWithRequestBuilder(moaOrderCreateInput: moaOrderCreateInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -69,15 +69,15 @@ import Foundation
     }
 
     /**
-     - POST /v1/orders/current
+     - POST /v1/customers/current/orders/current
      - BASIC:
        - type: http
        - name: bearer
      - parameter moaOrderCreateInput: (body)  
      - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func createOrderWithRequestBuilder(moaOrderCreateInput: MoaOrderCreateInput) -> RequestBuilder<MoaCustomer> {
-        let path = "/v1/orders/current"
+    open class func createOrderForCurrentCustomerWithRequestBuilder(moaOrderCreateInput: MoaOrderCreateInput) -> RequestBuilder<MoaCustomer> {
+        let path = "/v1/customers/current/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderCreateInput)
 
@@ -99,8 +99,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func deleteCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
-        deleteCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func deleteCurrentCustomersCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaCustomer, Error>) -> Void)) {
+        deleteCurrentCustomersCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -111,14 +111,14 @@ import Foundation
     }
 
     /**
-     - DELETE /v1/orders/current
+     - DELETE /v1/customers/current/orders/current
      - BASIC:
        - type: http
        - name: bearer
      - returns: RequestBuilder<MoaCustomer> 
      */
-    open class func deleteCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaCustomer> {
-        let path = "/v1/orders/current"
+    open class func deleteCurrentCustomersCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaCustomer> {
+        let path = "/v1/customers/current/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -154,7 +154,7 @@ import Foundation
     }
 
     /**
-     - GET /v1/orders
+     - GET /v1/customers/current/orders
      - BASIC:
        - type: http
        - name: bearer
@@ -163,7 +163,7 @@ import Foundation
      - returns: RequestBuilder<MoaOrderPaginatedResponse> 
      */
     open class func getCurrentCustomerOrdersWithRequestBuilder(page: Double? = nil, limit: Double? = nil) -> RequestBuilder<MoaOrderPaginatedResponse> {
-        let path = "/v1/orders"
+        let path = "/v1/customers/current/orders"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -189,8 +189,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func getCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        getCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
+    open class func getCurrentCustomersCurrentOrder(apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        getCurrentCustomersCurrentOrderWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -201,60 +201,14 @@ import Foundation
     }
 
     /**
-     - GET /v1/orders/current
+     - GET /v1/customers/current/orders/current
      - BASIC:
        - type: http
        - name: bearer
      - returns: RequestBuilder<MoaOrder> 
      */
-    open class func getCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaOrder> {
-        let path = "/v1/orders/current"
-        let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters: [String: Any]? = nil
-
-        let url = URLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            :
-        ]
-
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
-    }
-
-    /**
-
-     - parameter _id: (path)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the result
-     */
-    open class func getOrderWithId(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        getOrderWithIdWithRequestBuilder(_id: _id).execute(apiResponseQueue) { result -> Void in
-            switch result {
-            case let .success(response):
-                completion(.success(response.body!))
-            case let .failure(error):
-                completion(.failure(error))
-            }
-        }
-    }
-
-    /**
-     - GET /v1/orders/{id}
-     - BASIC:
-       - type: http
-       - name: bearer
-     - parameter _id: (path)  
-     - returns: RequestBuilder<MoaOrder> 
-     */
-    open class func getOrderWithIdWithRequestBuilder(_id: String) -> RequestBuilder<MoaOrder> {
-        var path = "/v1/orders/{id}"
-        let _idPreEscape = "\(APIHelper.mapValueToPathItem(_id))"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    open class func getCurrentCustomersCurrentOrderWithRequestBuilder() -> RequestBuilder<MoaOrder> {
+        let path = "/v1/customers/current/orders/current"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 
@@ -277,8 +231,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func payForCurrentOrder(moaOrderPayInput: MoaOrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        payForCurrentOrderWithRequestBuilder(moaOrderPayInput: moaOrderPayInput).execute(apiResponseQueue) { result -> Void in
+    open class func payForCurrentCustomersCurrentOrder(moaOrderPayInput: MoaOrderPayInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        payForCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderPayInput: moaOrderPayInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -289,15 +243,15 @@ import Foundation
     }
 
     /**
-     - PUT /v1/orders/current/pay
+     - PUT /v1/customers/current/orders/current/payment
      - BASIC:
        - type: http
        - name: bearer
      - parameter moaOrderPayInput: (body)  
      - returns: RequestBuilder<MoaOrder> 
      */
-    open class func payForCurrentOrderWithRequestBuilder(moaOrderPayInput: MoaOrderPayInput) -> RequestBuilder<MoaOrder> {
-        let path = "/v1/orders/current/pay"
+    open class func payForCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderPayInput: MoaOrderPayInput) -> RequestBuilder<MoaOrder> {
+        let path = "/v1/customers/current/orders/current/payment"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderPayInput)
 
@@ -320,8 +274,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func removeFromCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        removeFromCurrentOrderWithRequestBuilder(moaOrderRemoveInput: moaOrderRemoveInput).execute(apiResponseQueue) { result -> Void in
+    open class func removeVariationFromCurrentCustomersCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderRemoveInput: moaOrderRemoveInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -332,15 +286,15 @@ import Foundation
     }
 
     /**
-     - POST /v1/orders/current/remove
+     - DELETE /v1/customers/current/orders/current/variation
      - BASIC:
        - type: http
        - name: bearer
      - parameter moaOrderRemoveInput: (body)  
      - returns: RequestBuilder<MoaOrder> 
      */
-    open class func removeFromCurrentOrderWithRequestBuilder(moaOrderRemoveInput: MoaOrderRemoveInput) -> RequestBuilder<MoaOrder> {
-        let path = "/v1/orders/current/remove"
+    open class func removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderRemoveInput: MoaOrderRemoveInput) -> RequestBuilder<MoaOrder> {
+        let path = "/v1/customers/current/orders/current/variation"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderRemoveInput)
 
@@ -354,7 +308,7 @@ import Foundation
 
         let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

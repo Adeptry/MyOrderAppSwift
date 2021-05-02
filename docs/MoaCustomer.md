@@ -3,13 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessToken** | **String** |  | [optional] 
 **currentOrder** | [**MoaOrder**](MoaOrder.md) |  | [optional] 
 **orders** | [MoaOrder] |  | [optional] 
 **_id** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 
-**squareId** | **String** |  | [optional] 
+**phoneNumber** | **String** |  | [optional] 
 **merchantId** | **String** |  | [optional] 
 **merchant** | [**MoaMerchant**](MoaMerchant.md) |  | [optional] 
 

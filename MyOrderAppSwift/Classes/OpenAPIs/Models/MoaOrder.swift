@@ -16,12 +16,14 @@ import Foundation
     public var createDate: Date?
     public var updateDate: Date?
     public var squareOrderId: String?
-    public var squareLocationId: String?
     public var squarePaymentId: String?
     public var customerId: String?
+    public var merchantId: String?
     public var merchant: MoaMerchant?
+    public var locationId: String?
+    public var location: MoaLocation?
 
-    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squareLocationId: String? = nil, squarePaymentId: String? = nil, customerId: String? = nil, merchant: MoaMerchant? = nil) {
+    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squarePaymentId: String? = nil, customerId: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil, locationId: String? = nil, location: MoaLocation? = nil) {
         self.squareOrder = squareOrder
         self.squarePayment = squarePayment
         self.customer = customer
@@ -29,10 +31,12 @@ import Foundation
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareOrderId = squareOrderId
-        self.squareLocationId = squareLocationId
         self.squarePaymentId = squarePaymentId
         self.customerId = customerId
+        self.merchantId = merchantId
         self.merchant = merchant
+        self.locationId = locationId
+        self.location = location
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -43,10 +47,12 @@ import Foundation
         case createDate
         case updateDate
         case squareOrderId
-        case squareLocationId
         case squarePaymentId
         case customerId
+        case merchantId
         case merchant
+        case locationId
+        case location
     }
 
 }
