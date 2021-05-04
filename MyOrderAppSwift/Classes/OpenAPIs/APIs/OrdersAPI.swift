@@ -227,6 +227,52 @@ import Foundation
 
     /**
 
+     - parameter moaId: (path)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    open class func getOrderWithId(moaId: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        getOrderWithIdWithRequestBuilder(moaId: moaId).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body!))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     - GET /v1/orders/{moaId}
+     - BASIC:
+       - type: http
+       - name: bearer
+     - parameter moaId: (path)  
+     - returns: RequestBuilder<MoaOrder> 
+     */
+    open class func getOrderWithIdWithRequestBuilder(moaId: String) -> RequestBuilder<MoaOrder> {
+        var path = "/v1/orders/{moaId}"
+        let moaIdPreEscape = "\(APIHelper.mapValueToPathItem(moaId))"
+        let moaIdPostEscape = moaIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{moaId}", with: moaIdPostEscape, options: .literal, range: nil)
+        let URLString = MyOrderAppSwiftAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<MoaOrder>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+
      - parameter moaOrderPayInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result

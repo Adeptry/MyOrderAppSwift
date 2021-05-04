@@ -41,6 +41,7 @@ Class | Method | HTTP request | Description
 *OrdersAPI* | [**deleteCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#deletecurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current | 
 *OrdersAPI* | [**getCurrentCustomerOrders**](docs/OrdersAPI.md#getcurrentcustomerorders) | **GET** /v1/customers/current/orders | 
 *OrdersAPI* | [**getCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#getcurrentcustomerscurrentorder) | **GET** /v1/customers/current/orders/current | 
+*OrdersAPI* | [**getOrderWithId**](docs/OrdersAPI.md#getorderwithid) | **GET** /v1/orders/{moaId} | 
 *OrdersAPI* | [**payForCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#payforcurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/payment | 
 *OrdersAPI* | [**removeVariationFromCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation | 
 

@@ -15,23 +15,23 @@ import Foundation
     public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
-    public var squareOrderId: String?
-    public var squarePaymentId: String?
+    public var orderSquareId: String?
+    public var paymentSquareId: String?
     public var customerMoaId: String?
     public var merchantMoaId: String?
     public var merchant: MoaMerchant?
     public var locationMoaId: String?
     public var location: MoaLocation?
 
-    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squarePaymentId: String? = nil, customerMoaId: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, locationMoaId: String? = nil, location: MoaLocation? = nil) {
+    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, orderSquareId: String? = nil, paymentSquareId: String? = nil, customerMoaId: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, locationMoaId: String? = nil, location: MoaLocation? = nil) {
         self.squareOrder = squareOrder
         self.squarePayment = squarePayment
         self.customer = customer
         self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
-        self.squareOrderId = squareOrderId
-        self.squarePaymentId = squarePaymentId
+        self.orderSquareId = orderSquareId
+        self.paymentSquareId = paymentSquareId
         self.customerMoaId = customerMoaId
         self.merchantMoaId = merchantMoaId
         self.merchant = merchant
