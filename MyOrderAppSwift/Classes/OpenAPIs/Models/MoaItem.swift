@@ -12,41 +12,41 @@ import Foundation
     public var category: MoaCategory?
     public var modifierLists: [MoaModifierList]?
     public var variations: [MoaVariation]?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
     public var name: String?
     public var priceInCents: Double?
     public var _description: String?
-    public var categoryId: String?
+    public var categoryMoaId: String?
 
-    public init(category: MoaCategory? = nil, modifierLists: [MoaModifierList]? = nil, variations: [MoaVariation]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, _description: String? = nil, categoryId: String? = nil) {
+    public init(category: MoaCategory? = nil, modifierLists: [MoaModifierList]? = nil, variations: [MoaVariation]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, _description: String? = nil, categoryMoaId: String? = nil) {
         self.category = category
         self.modifierLists = modifierLists
         self.variations = variations
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
         self._description = _description
-        self.categoryId = categoryId
+        self.categoryMoaId = categoryMoaId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case category
         case modifierLists
         case variations
-        case _id = "id"
+        case moaId
         case createDate
         case updateDate
         case squareId
         case name
         case priceInCents
         case _description = "description"
-        case categoryId
+        case categoryMoaId
     }
 
 }

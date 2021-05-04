@@ -9,11 +9,9 @@ import Foundation
 
 @objc public class MoaError: NSObject, Codable {
 
-    public var response: Any?
     public var status: Double?
 
-    public init(response: Any? = nil, status: Double? = nil) {
-        self.response = response
+    public init(status: Double? = nil) {
         self.status = status
     }
 

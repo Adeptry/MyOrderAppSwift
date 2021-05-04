@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **catalog** | [**MoaCatalog**](MoaCatalog.md) |  | [optional] 
-**_id** | **String** |  | [optional] 
+**moaId** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 

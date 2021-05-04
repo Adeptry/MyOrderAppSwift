@@ -9,15 +9,15 @@ import Foundation
 
 @objc public class MoaOrderAddInput: NSObject, Codable {
 
-    public var variationId: String
+    public var variationMoaId: String
     public var quantity: Double
-    public var modifiersIds: [String]?
+    public var modifiersMoaIds: [String]?
     public var idempotencyKey: String
 
-    public init(variationId: String, quantity: Double, modifiersIds: [String]? = nil, idempotencyKey: String) {
-        self.variationId = variationId
+    public init(variationMoaId: String, quantity: Double, modifiersMoaIds: [String]? = nil, idempotencyKey: String) {
+        self.variationMoaId = variationMoaId
         self.quantity = quantity
-        self.modifiersIds = modifiersIds
+        self.modifiersMoaIds = modifiersMoaIds
         self.idempotencyKey = idempotencyKey
     }
 

@@ -11,12 +11,12 @@ import Foundation
 
     public var email: String
     public var password: String
-    public var merchantId: String?
+    public var merchantMoaId: String?
 
-    public init(email: String, password: String, merchantId: String? = nil) {
+    public init(email: String, password: String, merchantMoaId: String? = nil) {
         self.email = email
         self.password = password
-        self.merchantId = merchantId
+        self.merchantMoaId = merchantMoaId
     }
 
 }

@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 **accessToken** | **String** |  | [optional] 
 **currentOrder** | [**MoaOrder**](MoaOrder.md) |  | [optional] 
 **orders** | [MoaOrder] |  | [optional] 
-**_id** | **String** |  | [optional] 
+**moaId** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **email** | **String** |  | [optional] 
 **phoneNumber** | **String** |  | [optional] 
-**merchantId** | **String** |  | [optional] 
+**merchantMoaId** | **String** |  | [optional] 
 **merchant** | [**MoaMerchant**](MoaMerchant.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

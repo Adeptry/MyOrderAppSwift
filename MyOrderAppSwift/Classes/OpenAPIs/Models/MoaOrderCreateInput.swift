@@ -9,10 +9,10 @@ import Foundation
 
 @objc public class MoaOrderCreateInput: NSObject, Codable {
 
-    public var locationId: String
+    public var locationMoaId: String
 
-    public init(locationId: String) {
-        self.locationId = locationId
+    public init(locationMoaId: String) {
+        self.locationMoaId = locationMoaId
     }
 
 }

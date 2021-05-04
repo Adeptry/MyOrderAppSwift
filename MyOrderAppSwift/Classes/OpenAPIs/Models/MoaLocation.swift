@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class MoaLocation: NSObject, Codable {
 
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var name: String?
@@ -18,11 +18,11 @@ import Foundation
     public var latitude: Double?
     public var longitude: Double?
     public var status: String?
-    public var merchantId: String?
+    public var merchantMoaId: String?
     public var merchant: MoaMerchant?
 
-    public init(_id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil) {
-        self._id = _id
+    public init(moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil) {
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.name = name
@@ -31,12 +31,12 @@ import Foundation
         self.latitude = latitude
         self.longitude = longitude
         self.status = status
-        self.merchantId = merchantId
+        self.merchantMoaId = merchantMoaId
         self.merchant = merchant
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case _id = "id"
+        case moaId
         case createDate
         case updateDate
         case name
@@ -45,7 +45,7 @@ import Foundation
         case latitude
         case longitude
         case status
-        case merchantId
+        case merchantMoaId
         case merchant
     }
 

@@ -11,24 +11,16 @@ import Foundation
 
     public var categories: [MoaCategory]?
     public var merchant: MoaMerchant?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
 
-    public init(categories: [MoaCategory]? = nil, merchant: MoaMerchant? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil) {
+    public init(categories: [MoaCategory]? = nil, merchant: MoaMerchant? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil) {
         self.categories = categories
         self.merchant = merchant
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case categories
-        case merchant
-        case _id = "id"
-        case createDate
-        case updateDate
     }
 
 }

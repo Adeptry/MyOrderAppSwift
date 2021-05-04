@@ -25,7 +25,7 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaOrderAddInput = MoaOrderAddInput(variationId: "variationId_example", quantity: 123, modifiersIds: ["modifiersIds_example"], idempotencyKey: "idempotencyKey_example") // MoaOrderAddInput | 
+let moaOrderAddInput = MoaOrderAddInput(variationMoaId: "variationMoaId_example", quantity: 123, modifiersMoaIds: ["modifiersMoaIds_example"], idempotencyKey: "idempotencyKey_example") // MoaOrderAddInput | 
 
 OrdersAPI.addVariationToCurrentCustomersCurrentOrder(moaOrderAddInput: moaOrderAddInput) { (response, error) in
     guard error == nil else {
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaOrderCreateInput = MoaOrderCreateInput(locationId: "locationId_example") // MoaOrderCreateInput | 
+let moaOrderCreateInput = MoaOrderCreateInput(locationMoaId: "locationMoaId_example") // MoaOrderCreateInput | 
 
 OrdersAPI.createOrderForCurrentCustomer(moaOrderCreateInput: moaOrderCreateInput) { (response, error) in
     guard error == nil else {

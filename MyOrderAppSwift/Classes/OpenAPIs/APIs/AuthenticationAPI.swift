@@ -14,8 +14,8 @@ import Foundation
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func postAuthentication(moaAuthenticationInput: MoaAuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaAuthenticationOutput, Error>) -> Void)) {
-        postAuthenticationWithRequestBuilder(moaAuthenticationInput: moaAuthenticationInput).execute(apiResponseQueue) { result -> Void in
+    open class func authenticate(moaAuthenticationInput: MoaAuthenticationInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaAuthenticationOutput, Error>) -> Void)) {
+        authenticateWithRequestBuilder(moaAuthenticationInput: moaAuthenticationInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -30,7 +30,7 @@ import Foundation
      - parameter moaAuthenticationInput: (body)  
      - returns: RequestBuilder<MoaAuthenticationOutput> 
      */
-    open class func postAuthenticationWithRequestBuilder(moaAuthenticationInput: MoaAuthenticationInput) -> RequestBuilder<MoaAuthenticationOutput> {
+    open class func authenticateWithRequestBuilder(moaAuthenticationInput: MoaAuthenticationInput) -> RequestBuilder<MoaAuthenticationOutput> {
         let path = "/v1/authentication"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaAuthenticationInput)

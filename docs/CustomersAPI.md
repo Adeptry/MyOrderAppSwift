@@ -21,7 +21,7 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaCustomerCreateInput = MoaCustomerCreateInput(email: "", password: "password_example", merchantId: "merchantId_example") // MoaCustomerCreateInput | 
+let moaCustomerCreateInput = MoaCustomerCreateInput(email: "", password: "password_example", merchantMoaId: "merchantMoaId_example") // MoaCustomerCreateInput | 
 
 CustomersAPI.createCustomer(moaCustomerCreateInput: moaCustomerCreateInput) { (response, error) in
     guard error == nil else {

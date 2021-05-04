@@ -25,7 +25,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationAPI* | [**postAuthentication**](docs/AuthenticationAPI.md#postauthentication) | **POST** /v1/authentication | 
+*AuthenticationAPI* | [**authenticate**](docs/AuthenticationAPI.md#authenticate) | **POST** /v1/authentication | 
 *CardsAPI* | [**createCardForCurrentCustomer**](docs/CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
 *CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
 *CardsAPI* | [**getCardsForCurrentCustomer**](docs/CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 

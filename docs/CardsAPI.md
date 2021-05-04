@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let squareDeleteCustomerCardInput = SquareDeleteCustomerCardInput(squareCardId: "squareCardId_example") // SquareDeleteCustomerCardInput | 
+let squareDeleteCustomerCardInput = SquareDeleteCustomerCardInput(cardSquareId: "cardSquareId_example") // SquareDeleteCustomerCardInput | 
 
 CardsAPI.deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: squareDeleteCustomerCardInput) { (response, error) in
     guard error == nil else {

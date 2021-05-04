@@ -12,38 +12,25 @@ import Foundation
     public var accessToken: String?
     public var currentOrder: MoaOrder?
     public var orders: [MoaOrder]?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var email: String?
     public var phoneNumber: String?
-    public var merchantId: String?
+    public var merchantMoaId: String?
     public var merchant: MoaMerchant?
 
-    public init(accessToken: String? = nil, currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, phoneNumber: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil) {
+    public init(accessToken: String? = nil, currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, phoneNumber: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil) {
         self.accessToken = accessToken
         self.currentOrder = currentOrder
         self.orders = orders
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.email = email
         self.phoneNumber = phoneNumber
-        self.merchantId = merchantId
+        self.merchantMoaId = merchantMoaId
         self.merchant = merchant
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case accessToken
-        case currentOrder
-        case orders
-        case _id = "id"
-        case createDate
-        case updateDate
-        case email
-        case phoneNumber
-        case merchantId
-        case merchant
     }
 
 }

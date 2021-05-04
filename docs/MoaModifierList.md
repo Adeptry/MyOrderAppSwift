@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item** | [**MoaItem**](MoaItem.md) |  | [optional] 
 **modifiers** | [MoaModifier] |  | [optional] 
-**_id** | **String** |  | [optional] 
+**moaId** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **squareId** | **String** |  | [optional] 

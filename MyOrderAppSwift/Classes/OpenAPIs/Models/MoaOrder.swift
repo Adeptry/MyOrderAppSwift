@@ -12,47 +12,31 @@ import Foundation
     public var squareOrder: SquareOrder?
     public var squarePayment: SquarePayment?
     public var customer: MoaCustomer?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareOrderId: String?
     public var squarePaymentId: String?
-    public var customerId: String?
-    public var merchantId: String?
+    public var customerMoaId: String?
+    public var merchantMoaId: String?
     public var merchant: MoaMerchant?
-    public var locationId: String?
+    public var locationMoaId: String?
     public var location: MoaLocation?
 
-    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squarePaymentId: String? = nil, customerId: String? = nil, merchantId: String? = nil, merchant: MoaMerchant? = nil, locationId: String? = nil, location: MoaLocation? = nil) {
+    public init(squareOrder: SquareOrder? = nil, squarePayment: SquarePayment? = nil, customer: MoaCustomer? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareOrderId: String? = nil, squarePaymentId: String? = nil, customerMoaId: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, locationMoaId: String? = nil, location: MoaLocation? = nil) {
         self.squareOrder = squareOrder
         self.squarePayment = squarePayment
         self.customer = customer
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareOrderId = squareOrderId
         self.squarePaymentId = squarePaymentId
-        self.customerId = customerId
-        self.merchantId = merchantId
+        self.customerMoaId = customerMoaId
+        self.merchantMoaId = merchantMoaId
         self.merchant = merchant
-        self.locationId = locationId
+        self.locationMoaId = locationMoaId
         self.location = location
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case squareOrder
-        case squarePayment
-        case customer
-        case _id = "id"
-        case createDate
-        case updateDate
-        case squareOrderId
-        case squarePaymentId
-        case customerId
-        case merchantId
-        case merchant
-        case locationId
-        case location
     }
 
 }

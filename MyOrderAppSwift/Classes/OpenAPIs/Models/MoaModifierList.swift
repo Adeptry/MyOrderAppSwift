@@ -11,7 +11,7 @@ import Foundation
 
     public var item: MoaItem?
     public var modifiers: [MoaModifier]?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var squareId: String?
@@ -25,10 +25,10 @@ import Foundation
     }
     public var name: String?
 
-    public init(item: MoaItem? = nil, modifiers: [MoaModifier]? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil) {
+    public init(item: MoaItem? = nil, modifiers: [MoaModifier]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil) {
         self.item = item
         self.modifiers = modifiers
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.squareId = squareId
@@ -36,19 +36,6 @@ import Foundation
         self.maxSelectedModifiers = maxSelectedModifiers
         self.enabled = enabled
         self.name = name
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case item
-        case modifiers
-        case _id = "id"
-        case createDate
-        case updateDate
-        case squareId
-        case minSelectedModifiers
-        case maxSelectedModifiers
-        case enabled
-        case name
     }
 
 }

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 Cartfile
 MyOrderAppSwift.podspec
 MyOrderAppSwift/Classes/OpenAPIs/APIHelper.swift

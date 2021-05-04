@@ -10,7 +10,7 @@ import Foundation
 @objc public class MoaMerchant: NSObject, Codable {
 
     public var catalog: MoaCatalog?
-    public var _id: String?
+    public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var email: String?
@@ -18,26 +18,15 @@ import Foundation
     public var lastName: String?
     public var phoneNumber: String?
 
-    public init(catalog: MoaCatalog? = nil, _id: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, phoneNumber: String? = nil) {
+    public init(catalog: MoaCatalog? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, phoneNumber: String? = nil) {
         self.catalog = catalog
-        self._id = _id
+        self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
         self.phoneNumber = phoneNumber
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case catalog
-        case _id = "id"
-        case createDate
-        case updateDate
-        case email
-        case firstName
-        case lastName
-        case phoneNumber
     }
 
 }

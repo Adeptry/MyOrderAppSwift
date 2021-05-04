@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **catalog** | [**MoaCatalog**](MoaCatalog.md) |  | [optional] 
 **items** | [MoaItem] |  | [optional] 
-**_id** | **String** |  | [optional] 
+**moaId** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 
 **squareId** | **String** |  | [optional] 
