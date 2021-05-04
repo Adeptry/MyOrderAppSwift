@@ -51,12 +51,12 @@ import Foundation
 
     /**
 
-     - parameter _id: (path)  
+     - parameter moaId: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func getMerchantLocations(_id: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<[MoaLocation], Error>) -> Void)) {
-        getMerchantLocationsWithRequestBuilder(_id: _id).execute(apiResponseQueue) { result -> Void in
+    open class func getMerchantLocations(moaId: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<[MoaLocation], Error>) -> Void)) {
+        getMerchantLocationsWithRequestBuilder(moaId: moaId).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -67,15 +67,15 @@ import Foundation
     }
 
     /**
-     - GET /v1/merchants/{id}/locations
-     - parameter _id: (path)  
+     - GET /v1/merchants/{moaId}/locations
+     - parameter moaId: (path)  
      - returns: RequestBuilder<[MoaLocation]> 
      */
-    open class func getMerchantLocationsWithRequestBuilder(_id: String) -> RequestBuilder<[MoaLocation]> {
-        var path = "/v1/merchants/{id}/locations"
-        let _idPreEscape = "\(APIHelper.mapValueToPathItem(_id))"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    open class func getMerchantLocationsWithRequestBuilder(moaId: String) -> RequestBuilder<[MoaLocation]> {
+        var path = "/v1/merchants/{moaId}/locations"
+        let moaIdPreEscape = "\(APIHelper.mapValueToPathItem(moaId))"
+        let moaIdPostEscape = moaIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{moaId}", with: moaIdPostEscape, options: .literal, range: nil)
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters: [String: Any]? = nil
 

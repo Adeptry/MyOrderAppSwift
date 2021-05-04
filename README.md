@@ -30,12 +30,12 @@ Class | Method | HTTP request | Description
 *CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
 *CardsAPI* | [**getCardsForCurrentCustomer**](docs/CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
 *CatalogAPI* | [**getCurrentCustomersMerchantsCatalog**](docs/CatalogAPI.md#getcurrentcustomersmerchantscatalog) | **GET** /v1/customers/current/merchant/catalog | 
-*CatalogAPI* | [**getMerchantCatalog**](docs/CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{id}/catalog | 
+*CatalogAPI* | [**getMerchantCatalog**](docs/CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{moaId}/catalog | 
 *CustomersAPI* | [**createCustomer**](docs/CustomersAPI.md#createcustomer) | **POST** /v1/customers | 
 *CustomersAPI* | [**getCurrentCustomer**](docs/CustomersAPI.md#getcurrentcustomer) | **GET** /v1/customers/current | 
 *CustomersAPI* | [**updateCurrentCustomer**](docs/CustomersAPI.md#updatecurrentcustomer) | **PATCH** /v1/customers/current | 
 *LocationsAPI* | [**getCurrentCustomersMerchantsLocations**](docs/LocationsAPI.md#getcurrentcustomersmerchantslocations) | **GET** /v1/customers/current/merchant/locations | 
-*LocationsAPI* | [**getMerchantLocations**](docs/LocationsAPI.md#getmerchantlocations) | **GET** /v1/merchants/{id}/locations | 
+*LocationsAPI* | [**getMerchantLocations**](docs/LocationsAPI.md#getmerchantlocations) | **GET** /v1/merchants/{moaId}/locations | 
 *OrdersAPI* | [**addVariationToCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#addvariationtocurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/variation | 
 *OrdersAPI* | [**createOrderForCurrentCustomer**](docs/OrdersAPI.md#createorderforcurrentcustomer) | **POST** /v1/customers/current/orders/current | 
 *OrdersAPI* | [**deleteCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#deletecurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current | 

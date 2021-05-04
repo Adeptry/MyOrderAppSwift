@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCurrentCustomersMerchantsCatalog**](CatalogAPI.md#getcurrentcustomersmerchantscatalog) | **GET** /v1/customers/current/merchant/catalog | 
-[**getMerchantCatalog**](CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{id}/catalog | 
+[**getMerchantCatalog**](CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{moaId}/catalog | 
 
 
 # **getCurrentCustomersMerchantsCatalog**
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 # **getMerchantCatalog**
 ```swift
-    open class func getMerchantCatalog(_id: String, completion: @escaping (_ data: MoaCatalog?, _ error: Error?) -> Void)
+    open class func getMerchantCatalog(moaId: String, completion: @escaping (_ data: MoaCatalog?, _ error: Error?) -> Void)
 ```
 
 
@@ -63,9 +63,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let _id = "_id_example" // String | 
+let moaId = "moaId_example" // String | 
 
-CatalogAPI.getMerchantCatalog(_id: _id) { (response, error) in
+CatalogAPI.getMerchantCatalog(moaId: moaId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -81,7 +81,7 @@ CatalogAPI.getMerchantCatalog(_id: _id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_id** | **String** |  | 
+ **moaId** | **String** |  | 
 
 ### Return type
 

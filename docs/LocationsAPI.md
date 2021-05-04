@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCurrentCustomersMerchantsLocations**](LocationsAPI.md#getcurrentcustomersmerchantslocations) | **GET** /v1/customers/current/merchant/locations | 
-[**getMerchantLocations**](LocationsAPI.md#getmerchantlocations) | **GET** /v1/merchants/{id}/locations | 
+[**getMerchantLocations**](LocationsAPI.md#getmerchantlocations) | **GET** /v1/merchants/{moaId}/locations | 
 
 
 # **getCurrentCustomersMerchantsLocations**
@@ -53,7 +53,7 @@ This endpoint does not need any parameter.
 
 # **getMerchantLocations**
 ```swift
-    open class func getMerchantLocations(_id: String, completion: @escaping (_ data: [MoaLocation]?, _ error: Error?) -> Void)
+    open class func getMerchantLocations(moaId: String, completion: @escaping (_ data: [MoaLocation]?, _ error: Error?) -> Void)
 ```
 
 
@@ -63,9 +63,9 @@ This endpoint does not need any parameter.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let _id = "_id_example" // String | 
+let moaId = "moaId_example" // String | 
 
-LocationsAPI.getMerchantLocations(_id: _id) { (response, error) in
+LocationsAPI.getMerchantLocations(moaId: moaId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -81,7 +81,7 @@ LocationsAPI.getMerchantLocations(_id: _id) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_id** | **String** |  | 
+ **moaId** | **String** |  | 
 
 ### Return type
 
