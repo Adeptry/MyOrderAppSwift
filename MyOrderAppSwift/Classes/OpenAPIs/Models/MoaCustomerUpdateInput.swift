@@ -11,9 +11,9 @@ import Foundation
 
     public var email: String?
     public var phoneNumber: String?
-    public var password: String
+    public var password: String?
 
-    public init(email: String? = nil, phoneNumber: String? = nil, password: String) {
+    public init(email: String? = nil, phoneNumber: String? = nil, password: String? = nil) {
         self.email = email
         self.phoneNumber = phoneNumber
         self.password = password

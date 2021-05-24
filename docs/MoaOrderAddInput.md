@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **variationMoaId** | **String** |  | 
-**quantity** | **Double** |  | 
+**quantity** | **Double** |  | [default to 1]
 **modifiersMoaIds** | **[String]** |  | [optional] 
 **idempotencyKey** | **String** |  | 
 

@@ -9,9 +9,9 @@ import Foundation
 
 @objc public class SquareDeleteCustomerCardInput: NSObject, Codable {
 
-    public var cardSquareId: String?
+    public var cardSquareId: String
 
-    public init(cardSquareId: String? = nil) {
+    public init(cardSquareId: String) {
         self.cardSquareId = cardSquareId
     }
 
