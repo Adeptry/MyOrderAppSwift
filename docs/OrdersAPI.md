@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaOrderPayInput = MoaOrderPayInput(paymentSquareId: "paymentSquareId_example", idempotencyKey: "idempotencyKey_example") // MoaOrderPayInput | 
+let moaOrderPayInput = MoaOrderPayInput(paymentSquareId: "paymentSquareId_example", orderTipMoney: 123, idempotencyKey: "idempotencyKey_example") // MoaOrderPayInput | 
 
 OrdersAPI.payForCurrentCustomersCurrentOrder(moaOrderPayInput: moaOrderPayInput) { (response, error) in
     guard error == nil else {

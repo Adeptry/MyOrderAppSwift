@@ -34,6 +34,7 @@ MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderAddInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderCreateInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderPaginatedResponse.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderPayInput.swift
+MyOrderAppSwift/Classes/OpenAPIs/Models/MoaPasswordResetRequest.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaVariation.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareAddress.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareCard.swift
@@ -79,6 +80,7 @@ docs/MoaOrderAddInput.md
 docs/MoaOrderCreateInput.md
 docs/MoaOrderPaginatedResponse.md
 docs/MoaOrderPayInput.md
+docs/MoaPasswordResetRequest.md
 docs/MoaVariation.md
 docs/OrdersAPI.md
 docs/SquareAddress.md

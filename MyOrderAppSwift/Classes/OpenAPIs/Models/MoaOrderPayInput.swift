@@ -10,10 +10,12 @@ import Foundation
 @objc public class MoaOrderPayInput: NSObject, Codable {
 
     public var paymentSquareId: String
+    public var orderTipMoney: Double
     public var idempotencyKey: String
 
-    public init(paymentSquareId: String, idempotencyKey: String) {
+    public init(paymentSquareId: String, orderTipMoney: Double, idempotencyKey: String) {
         self.paymentSquareId = paymentSquareId
+        self.orderTipMoney = orderTipMoney
         self.idempotencyKey = idempotencyKey
     }
 

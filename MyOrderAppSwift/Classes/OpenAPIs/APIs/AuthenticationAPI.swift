@@ -48,4 +48,44 @@ import Foundation
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
+    /**
+
+     - parameter moaPasswordResetRequest: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    open class func requestResetPassword(moaPasswordResetRequest: MoaPasswordResetRequest, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Bool, Error>) -> Void)) {
+        requestResetPasswordWithRequestBuilder(moaPasswordResetRequest: moaPasswordResetRequest).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body!))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     - POST /v1/authentication/resetPassword/request
+     - parameter moaPasswordResetRequest: (body)  
+     - returns: RequestBuilder<Bool> 
+     */
+    open class func requestResetPasswordWithRequestBuilder(moaPasswordResetRequest: MoaPasswordResetRequest) -> RequestBuilder<Bool> {
+        let path = "/v1/authentication/resetPassword/request"
+        let URLString = MyOrderAppSwiftAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaPasswordResetRequest)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Bool>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
 }
