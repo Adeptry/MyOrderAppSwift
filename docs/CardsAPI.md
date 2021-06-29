@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCardForCurrentCustomer**](CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
-[**deleteCardForCurrentCustomer**](CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
+[**deleteCardForCurrentCustomer**](CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards/{squareId} | 
 [**getCardsForCurrentCustomer**](CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
 
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 # **deleteCardForCurrentCustomer**
 ```swift
-    open class func deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: SquareDeleteCustomerCardInput, completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
+    open class func deleteCardForCurrentCustomer(squareId: String, completion: @escaping (_ data: [SquareCard]?, _ error: Error?) -> Void)
 ```
 
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let squareDeleteCustomerCardInput = SquareDeleteCustomerCardInput(cardSquareId: "cardSquareId_example") // SquareDeleteCustomerCardInput | 
+let squareId = "squareId_example" // String | 
 
-CardsAPI.deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: squareDeleteCustomerCardInput) { (response, error) in
+CardsAPI.deleteCardForCurrentCustomer(squareId: squareId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -86,7 +86,7 @@ CardsAPI.deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: squareDelet
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **squareDeleteCustomerCardInput** | [**SquareDeleteCustomerCardInput**](SquareDeleteCustomerCardInput.md) |  | 
+ **squareId** | **String** |  | 
 
 ### Return type
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

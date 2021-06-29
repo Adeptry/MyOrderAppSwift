@@ -27,7 +27,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationAPI* | [**authenticate**](docs/AuthenticationAPI.md#authenticate) | **POST** /v1/authentication | 
 *CardsAPI* | [**createCardForCurrentCustomer**](docs/CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
-*CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards | 
+*CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards/{squareId} | 
 *CardsAPI* | [**getCardsForCurrentCustomer**](docs/CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
 *CatalogAPI* | [**getCurrentCustomersMerchantsCatalog**](docs/CatalogAPI.md#getcurrentcustomersmerchantscatalog) | **GET** /v1/customers/current/merchant/catalog | 
 *CatalogAPI* | [**getMerchantCatalog**](docs/CatalogAPI.md#getmerchantcatalog) | **GET** /v1/merchants/{moaId}/catalog | 
@@ -43,7 +43,7 @@ Class | Method | HTTP request | Description
 *OrdersAPI* | [**getCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#getcurrentcustomerscurrentorder) | **GET** /v1/customers/current/orders/current | 
 *OrdersAPI* | [**getOrderWithId**](docs/OrdersAPI.md#getorderwithid) | **GET** /v1/orders/{moaId} | 
 *OrdersAPI* | [**payForCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#payforcurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/payment | 
-*OrdersAPI* | [**removeVariationFromCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation | 
+*OrdersAPI* | [**removeVariationFromCurrentCustomersCurrentOrder**](docs/OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation/{orderVariationUid} | 
 
 
 ## Documentation For Models
@@ -66,12 +66,10 @@ Class | Method | HTTP request | Description
  - [MoaOrderCreateInput](docs/MoaOrderCreateInput.md)
  - [MoaOrderPaginatedResponse](docs/MoaOrderPaginatedResponse.md)
  - [MoaOrderPayInput](docs/MoaOrderPayInput.md)
- - [MoaOrderRemoveInput](docs/MoaOrderRemoveInput.md)
  - [MoaVariation](docs/MoaVariation.md)
  - [SquareAddress](docs/SquareAddress.md)
  - [SquareCard](docs/SquareCard.md)
  - [SquareCreateCustomerCardInput](docs/SquareCreateCustomerCardInput.md)
- - [SquareDeleteCustomerCardInput](docs/SquareDeleteCustomerCardInput.md)
  - [SquareMoney](docs/SquareMoney.md)
  - [SquareOrder](docs/SquareOrder.md)
  - [SquareOrderFulfillment](docs/SquareOrderFulfillment.md)

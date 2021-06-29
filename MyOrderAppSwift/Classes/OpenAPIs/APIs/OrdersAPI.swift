@@ -316,12 +316,12 @@ import Foundation
 
     /**
 
-     - parameter moaOrderRemoveInput: (body)  
+     - parameter orderVariationUid: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func removeVariationFromCurrentCustomersCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
-        removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderRemoveInput: moaOrderRemoveInput).execute(apiResponseQueue) { result -> Void in
+    open class func removeVariationFromCurrentCustomersCurrentOrder(orderVariationUid: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<MoaOrder, Error>) -> Void)) {
+        removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(orderVariationUid: orderVariationUid).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -332,17 +332,20 @@ import Foundation
     }
 
     /**
-     - DELETE /v1/customers/current/orders/current/variation
+     - DELETE /v1/customers/current/orders/current/variation/{orderVariationUid}
      - BASIC:
        - type: http
        - name: bearer
-     - parameter moaOrderRemoveInput: (body)  
+     - parameter orderVariationUid: (path)  
      - returns: RequestBuilder<MoaOrder> 
      */
-    open class func removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(moaOrderRemoveInput: MoaOrderRemoveInput) -> RequestBuilder<MoaOrder> {
-        let path = "/v1/customers/current/orders/current/variation"
+    open class func removeVariationFromCurrentCustomersCurrentOrderWithRequestBuilder(orderVariationUid: String) -> RequestBuilder<MoaOrder> {
+        var path = "/v1/customers/current/orders/current/variation/{orderVariationUid}"
+        let orderVariationUidPreEscape = "\(APIHelper.mapValueToPathItem(orderVariationUid))"
+        let orderVariationUidPostEscape = orderVariationUidPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{orderVariationUid}", with: orderVariationUidPostEscape, options: .literal, range: nil)
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaOrderRemoveInput)
+        let parameters: [String: Any]? = nil
 
         let url = URLComponents(string: URLString)
 

@@ -34,12 +34,10 @@ MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderAddInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderCreateInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderPaginatedResponse.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderPayInput.swift
-MyOrderAppSwift/Classes/OpenAPIs/Models/MoaOrderRemoveInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/MoaVariation.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareAddress.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareCard.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareCreateCustomerCardInput.swift
-MyOrderAppSwift/Classes/OpenAPIs/Models/SquareDeleteCustomerCardInput.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareMoney.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareOrder.swift
 MyOrderAppSwift/Classes/OpenAPIs/Models/SquareOrderFulfillment.swift
@@ -81,13 +79,11 @@ docs/MoaOrderAddInput.md
 docs/MoaOrderCreateInput.md
 docs/MoaOrderPaginatedResponse.md
 docs/MoaOrderPayInput.md
-docs/MoaOrderRemoveInput.md
 docs/MoaVariation.md
 docs/OrdersAPI.md
 docs/SquareAddress.md
 docs/SquareCard.md
 docs/SquareCreateCustomerCardInput.md
-docs/SquareDeleteCustomerCardInput.md
 docs/SquareMoney.md
 docs/SquareOrder.md
 docs/SquareOrderFulfillment.md

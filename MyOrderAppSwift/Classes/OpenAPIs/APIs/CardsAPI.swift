@@ -53,12 +53,12 @@ import Foundation
 
     /**
 
-     - parameter squareDeleteCustomerCardInput: (body)  
+     - parameter squareId: (path)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func deleteCardForCurrentCustomer(squareDeleteCustomerCardInput: SquareDeleteCustomerCardInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<[SquareCard], Error>) -> Void)) {
-        deleteCardForCurrentCustomerWithRequestBuilder(squareDeleteCustomerCardInput: squareDeleteCustomerCardInput).execute(apiResponseQueue) { result -> Void in
+    open class func deleteCardForCurrentCustomer(squareId: String, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<[SquareCard], Error>) -> Void)) {
+        deleteCardForCurrentCustomerWithRequestBuilder(squareId: squareId).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -69,17 +69,20 @@ import Foundation
     }
 
     /**
-     - DELETE /v1/customers/current/cards
+     - DELETE /v1/customers/current/cards/{squareId}
      - BASIC:
        - type: http
        - name: bearer
-     - parameter squareDeleteCustomerCardInput: (body)  
+     - parameter squareId: (path)  
      - returns: RequestBuilder<[SquareCard]> 
      */
-    open class func deleteCardForCurrentCustomerWithRequestBuilder(squareDeleteCustomerCardInput: SquareDeleteCustomerCardInput) -> RequestBuilder<[SquareCard]> {
-        let path = "/v1/customers/current/cards"
+    open class func deleteCardForCurrentCustomerWithRequestBuilder(squareId: String) -> RequestBuilder<[SquareCard]> {
+        var path = "/v1/customers/current/cards/{squareId}"
+        let squareIdPreEscape = "\(APIHelper.mapValueToPathItem(squareId))"
+        let squareIdPostEscape = squareIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{squareId}", with: squareIdPostEscape, options: .literal, range: nil)
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: squareDeleteCustomerCardInput)
+        let parameters: [String: Any]? = nil
 
         let url = URLComponents(string: URLString)
 

@@ -9,6 +9,10 @@ import Foundation
 
 @objc public class MoaModifierList: NSObject, Codable {
 
+    public enum SelectionType: String, Codable, CaseIterable {
+        case single = "SINGLE"
+        case multiple = "MULTIPLE"
+    }
     public var item: MoaItem?
     public var modifiers: [MoaModifier]?
     public var moaId: String?
@@ -24,8 +28,9 @@ import Foundation
         }
     }
     public var name: String?
+    public var selectionType: SelectionType?
 
-    public init(item: MoaItem? = nil, modifiers: [MoaModifier]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil) {
+    public init(item: MoaItem? = nil, modifiers: [MoaModifier]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil, selectionType: SelectionType? = nil) {
         self.item = item
         self.modifiers = modifiers
         self.moaId = moaId
@@ -36,6 +41,7 @@ import Foundation
         self.maxSelectedModifiers = maxSelectedModifiers
         self.enabled = enabled
         self.name = name
+        self.selectionType = selectionType
     }
 
 }

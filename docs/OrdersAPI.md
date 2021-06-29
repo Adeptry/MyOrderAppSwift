@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**getCurrentCustomersCurrentOrder**](OrdersAPI.md#getcurrentcustomerscurrentorder) | **GET** /v1/customers/current/orders/current | 
 [**getOrderWithId**](OrdersAPI.md#getorderwithid) | **GET** /v1/orders/{moaId} | 
 [**payForCurrentCustomersCurrentOrder**](OrdersAPI.md#payforcurrentcustomerscurrentorder) | **PUT** /v1/customers/current/orders/current/payment | 
-[**removeVariationFromCurrentCustomersCurrentOrder**](OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation | 
+[**removeVariationFromCurrentCustomersCurrentOrder**](OrdersAPI.md#removevariationfromcurrentcustomerscurrentorder) | **DELETE** /v1/customers/current/orders/current/variation/{orderVariationUid} | 
 
 
 # **addVariationToCurrentCustomersCurrentOrder**
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 # **removeVariationFromCurrentCustomersCurrentOrder**
 ```swift
-    open class func removeVariationFromCurrentCustomersCurrentOrder(moaOrderRemoveInput: MoaOrderRemoveInput, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
+    open class func removeVariationFromCurrentCustomersCurrentOrder(orderVariationUid: String, completion: @escaping (_ data: MoaOrder?, _ error: Error?) -> Void)
 ```
 
 
@@ -349,9 +349,9 @@ Name | Type | Description  | Notes
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaOrderRemoveInput = MoaOrderRemoveInput(orderVariationUid: "orderVariationUid_example") // MoaOrderRemoveInput | 
+let orderVariationUid = "orderVariationUid_example" // String | 
 
-OrdersAPI.removeVariationFromCurrentCustomersCurrentOrder(moaOrderRemoveInput: moaOrderRemoveInput) { (response, error) in
+OrdersAPI.removeVariationFromCurrentCustomersCurrentOrder(orderVariationUid: orderVariationUid) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -367,7 +367,7 @@ OrdersAPI.removeVariationFromCurrentCustomersCurrentOrder(moaOrderRemoveInput: m
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moaOrderRemoveInput** | [**MoaOrderRemoveInput**](MoaOrderRemoveInput.md) |  | 
+ **orderVariationUid** | **String** |  | 
 
 ### Return type
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
