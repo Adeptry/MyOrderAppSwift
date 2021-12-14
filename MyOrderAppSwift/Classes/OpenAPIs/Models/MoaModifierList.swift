@@ -13,11 +13,8 @@ import Foundation
         case single = "SINGLE"
         case multiple = "MULTIPLE"
     }
-    public var item: MoaItem?
+    public var items: [MoaItem]?
     public var modifiers: [MoaModifier]?
-    public var moaId: String?
-    public var createDate: Date?
-    public var updateDate: Date?
     public var squareId: String?
     public var minSelectedModifiers: Double?
     public var maxSelectedModifiers: Double?
@@ -29,19 +26,26 @@ import Foundation
     }
     public var name: String?
     public var selectionType: SelectionType?
+    public var moaId: String?
+    public var createDate: Date?
+    public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(item: MoaItem? = nil, modifiers: [MoaModifier]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil, selectionType: SelectionType? = nil) {
-        self.item = item
+    public init(items: [MoaItem]? = nil, modifiers: [MoaModifier]? = nil, squareId: String? = nil, minSelectedModifiers: Double? = nil, maxSelectedModifiers: Double? = nil, enabled: Bool? = nil, name: String? = nil, selectionType: SelectionType? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+        self.items = items
         self.modifiers = modifiers
-        self.moaId = moaId
-        self.createDate = createDate
-        self.updateDate = updateDate
         self.squareId = squareId
         self.minSelectedModifiers = minSelectedModifiers
         self.maxSelectedModifiers = maxSelectedModifiers
         self.enabled = enabled
         self.name = name
         self.selectionType = selectionType
+        self.moaId = moaId
+        self.createDate = createDate
+        self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }

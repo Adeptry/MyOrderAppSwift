@@ -10,21 +10,34 @@ import Foundation
 @objc public class MoaVariation: NSObject, Codable {
 
     public var item: MoaItem?
-    public var moaId: String?
-    public var createDate: Date?
-    public var updateDate: Date?
+    public var ordinal: Double?
+    public var moaEnabled: Bool?
+    public var moaEnabledNum: NSNumber? {
+        get {
+            return moaEnabled as NSNumber?
+        }
+    }
     public var squareId: String?
     public var name: String?
     public var priceInCents: Double?
+    public var moaId: String?
+    public var createDate: Date?
+    public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(item: MoaItem? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil) {
+    public init(item: MoaItem? = nil, ordinal: Double? = nil, moaEnabled: Bool? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.item = item
-        self.moaId = moaId
-        self.createDate = createDate
-        self.updateDate = updateDate
+        self.ordinal = ordinal
+        self.moaEnabled = moaEnabled
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
+        self.moaId = moaId
+        self.createDate = createDate
+        self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }

@@ -12,41 +12,61 @@ import Foundation
     public var category: MoaCategory?
     public var modifierLists: [MoaModifierList]?
     public var variations: [MoaVariation]?
-    public var moaId: String?
-    public var createDate: Date?
-    public var updateDate: Date?
+    public var image: MoaAWSS3File?
+    public var moaOrdinal: Double?
+    public var moaEnabled: Bool?
+    public var moaEnabledNum: NSNumber? {
+        get {
+            return moaEnabled as NSNumber?
+        }
+    }
     public var squareId: String?
     public var name: String?
     public var priceInCents: Double?
     public var _description: String?
     public var categoryMoaId: String?
+    public var moaId: String?
+    public var createDate: Date?
+    public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(category: MoaCategory? = nil, modifierLists: [MoaModifierList]? = nil, variations: [MoaVariation]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, _description: String? = nil, categoryMoaId: String? = nil) {
+    public init(category: MoaCategory? = nil, modifierLists: [MoaModifierList]? = nil, variations: [MoaVariation]? = nil, image: MoaAWSS3File? = nil, moaOrdinal: Double? = nil, moaEnabled: Bool? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, _description: String? = nil, categoryMoaId: String? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.category = category
         self.modifierLists = modifierLists
         self.variations = variations
-        self.moaId = moaId
-        self.createDate = createDate
-        self.updateDate = updateDate
+        self.image = image
+        self.moaOrdinal = moaOrdinal
+        self.moaEnabled = moaEnabled
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
         self._description = _description
         self.categoryMoaId = categoryMoaId
+        self.moaId = moaId
+        self.createDate = createDate
+        self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case category
         case modifierLists
         case variations
-        case moaId
-        case createDate
-        case updateDate
+        case image
+        case moaOrdinal
+        case moaEnabled
         case squareId
         case name
         case priceInCents
         case _description = "description"
         case categoryMoaId
+        case moaId
+        case createDate
+        case updateDate
+        case deleteDate
+        case version
     }
 
 }

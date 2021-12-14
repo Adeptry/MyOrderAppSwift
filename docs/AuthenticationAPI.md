@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthenticationAPI.md#authenticate) | **POST** /v1/authentication | 
-[**requestResetPassword**](AuthenticationAPI.md#requestresetpassword) | **POST** /v1/authentication/resetPassword/request | 
+[**requestResetPassword**](AuthenticationAPI.md#requestresetpassword) | **POST** /v1/authentication/password/reset/request | 
 
 
 # **authenticate**

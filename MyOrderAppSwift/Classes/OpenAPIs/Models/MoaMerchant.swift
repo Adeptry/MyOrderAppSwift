@@ -9,24 +9,40 @@ import Foundation
 
 @objc public class MoaMerchant: NSObject, Codable {
 
+    public var logo: MoaAWSS3File?
     public var catalog: MoaCatalog?
+    public var configuration: MoaConfiguration?
+    public var email: String?
+    public var fullName: String?
+    public var phoneNumber: String?
+    public var primaryColor: String?
+    public var secondaryColor: String?
+    public var fontFamily: String?
+    public var catalogMoaId: String?
+    public var configurationMoaId: String?
     public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
-    public var email: String?
-    public var firstName: String?
-    public var lastName: String?
-    public var phoneNumber: String?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(catalog: MoaCatalog? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, phoneNumber: String? = nil) {
+    public init(logo: MoaAWSS3File? = nil, catalog: MoaCatalog? = nil, configuration: MoaConfiguration? = nil, email: String? = nil, fullName: String? = nil, phoneNumber: String? = nil, primaryColor: String? = nil, secondaryColor: String? = nil, fontFamily: String? = nil, catalogMoaId: String? = nil, configurationMoaId: String? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+        self.logo = logo
         self.catalog = catalog
+        self.configuration = configuration
+        self.email = email
+        self.fullName = fullName
+        self.phoneNumber = phoneNumber
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
+        self.fontFamily = fontFamily
+        self.catalogMoaId = catalogMoaId
+        self.configurationMoaId = configurationMoaId
         self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
-        self.email = email
-        self.firstName = firstName
-        self.lastName = lastName
-        self.phoneNumber = phoneNumber
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }

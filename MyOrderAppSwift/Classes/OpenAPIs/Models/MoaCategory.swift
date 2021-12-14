@@ -11,20 +11,33 @@ import Foundation
 
     public var catalog: MoaCatalog?
     public var items: [MoaItem]?
+    public var moaOrdinal: Double?
+    public var moaEnabled: Bool?
+    public var moaEnabledNum: NSNumber? {
+        get {
+            return moaEnabled as NSNumber?
+        }
+    }
+    public var squareId: String?
+    public var name: String?
     public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
-    public var squareId: String?
-    public var name: String?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(catalog: MoaCatalog? = nil, items: [MoaItem]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, squareId: String? = nil, name: String? = nil) {
+    public init(catalog: MoaCatalog? = nil, items: [MoaItem]? = nil, moaOrdinal: Double? = nil, moaEnabled: Bool? = nil, squareId: String? = nil, name: String? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.catalog = catalog
         self.items = items
+        self.moaOrdinal = moaOrdinal
+        self.moaEnabled = moaEnabled
+        self.squareId = squareId
+        self.name = name
         self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
-        self.squareId = squareId
-        self.name = name
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }

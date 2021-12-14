@@ -9,9 +9,6 @@ import Foundation
 
 @objc public class MoaLocation: NSObject, Codable {
 
-    public var moaId: String?
-    public var createDate: Date?
-    public var updateDate: Date?
     public var name: String?
     public var _description: String?
     public var phoneNumber: String?
@@ -20,11 +17,14 @@ import Foundation
     public var status: String?
     public var merchantMoaId: String?
     public var merchant: MoaMerchant?
+    public var image: MoaAWSS3File?
+    public var moaId: String?
+    public var createDate: Date?
+    public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil) {
-        self.moaId = moaId
-        self.createDate = createDate
-        self.updateDate = updateDate
+    public init(name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, image: MoaAWSS3File? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.name = name
         self._description = _description
         self.phoneNumber = phoneNumber
@@ -33,12 +33,15 @@ import Foundation
         self.status = status
         self.merchantMoaId = merchantMoaId
         self.merchant = merchant
+        self.image = image
+        self.moaId = moaId
+        self.createDate = createDate
+        self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case moaId
-        case createDate
-        case updateDate
         case name
         case _description = "description"
         case phoneNumber
@@ -47,6 +50,12 @@ import Foundation
         case status
         case merchantMoaId
         case merchant
+        case image
+        case moaId
+        case createDate
+        case updateDate
+        case deleteDate
+        case version
     }
 
 }

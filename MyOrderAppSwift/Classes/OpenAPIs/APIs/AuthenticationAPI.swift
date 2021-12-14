@@ -66,12 +66,12 @@ import Foundation
     }
 
     /**
-     - POST /v1/authentication/resetPassword/request
+     - POST /v1/authentication/password/reset/request
      - parameter moaPasswordResetRequest: (body)  
      - returns: RequestBuilder<Bool> 
      */
     open class func requestResetPasswordWithRequestBuilder(moaPasswordResetRequest: MoaPasswordResetRequest) -> RequestBuilder<Bool> {
-        let path = "/v1/authentication/resetPassword/request"
+        let path = "/v1/authentication/password/reset/request"
         let URLString = MyOrderAppSwiftAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaPasswordResetRequest)
 

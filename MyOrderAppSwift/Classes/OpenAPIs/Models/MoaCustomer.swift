@@ -12,25 +12,29 @@ import Foundation
     public var accessToken: String?
     public var currentOrder: MoaOrder?
     public var orders: [MoaOrder]?
-    public var moaId: String?
-    public var createDate: Date?
-    public var updateDate: Date?
     public var email: String?
     public var phoneNumber: String?
     public var merchantMoaId: String?
     public var merchant: MoaMerchant?
+    public var moaId: String?
+    public var createDate: Date?
+    public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(accessToken: String? = nil, currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, email: String? = nil, phoneNumber: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil) {
+    public init(accessToken: String? = nil, currentOrder: MoaOrder? = nil, orders: [MoaOrder]? = nil, email: String? = nil, phoneNumber: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.accessToken = accessToken
         self.currentOrder = currentOrder
         self.orders = orders
-        self.moaId = moaId
-        self.createDate = createDate
-        self.updateDate = updateDate
         self.email = email
         self.phoneNumber = phoneNumber
         self.merchantMoaId = merchantMoaId
         self.merchant = merchant
+        self.moaId = moaId
+        self.createDate = createDate
+        self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }

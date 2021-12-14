@@ -14,13 +14,17 @@ import Foundation
     public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
+    public var deleteDate: Date?
+    public var version: Double?
 
-    public init(categories: [MoaCategory]? = nil, merchant: MoaMerchant? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil) {
+    public init(categories: [MoaCategory]? = nil, merchant: MoaMerchant? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.categories = categories
         self.merchant = merchant
         self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
+        self.deleteDate = deleteDate
+        self.version = version
     }
 
 }
