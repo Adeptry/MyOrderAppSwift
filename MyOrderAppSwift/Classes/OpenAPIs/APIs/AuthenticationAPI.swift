@@ -50,12 +50,12 @@ import Foundation
 
     /**
 
-     - parameter moaPasswordResetRequest: (body)  
+     - parameter moaPasswordForgotInput: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the result
      */
-    open class func requestResetPassword(moaPasswordResetRequest: MoaPasswordResetRequest, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Bool, Error>) -> Void)) {
-        requestResetPasswordWithRequestBuilder(moaPasswordResetRequest: moaPasswordResetRequest).execute(apiResponseQueue) { result -> Void in
+    open class func forgotPassword(moaPasswordForgotInput: MoaPasswordForgotInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Bool, Error>) -> Void)) {
+        forgotPasswordWithRequestBuilder(moaPasswordForgotInput: moaPasswordForgotInput).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(.success(response.body!))
@@ -66,14 +66,54 @@ import Foundation
     }
 
     /**
-     - POST /v1/authentication/password/reset/request
-     - parameter moaPasswordResetRequest: (body)  
+     - POST /v1/authentication/forgot-password
+     - parameter moaPasswordForgotInput: (body)  
      - returns: RequestBuilder<Bool> 
      */
-    open class func requestResetPasswordWithRequestBuilder(moaPasswordResetRequest: MoaPasswordResetRequest) -> RequestBuilder<Bool> {
-        let path = "/v1/authentication/password/reset/request"
+    open class func forgotPasswordWithRequestBuilder(moaPasswordForgotInput: MoaPasswordForgotInput) -> RequestBuilder<Bool> {
+        let path = "/v1/authentication/forgot-password"
         let URLString = MyOrderAppSwiftAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaPasswordResetRequest)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaPasswordForgotInput)
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<Bool>.Type = MyOrderAppSwiftAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
+    /**
+
+     - parameter moaPasswordResetInput: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the result
+     */
+    open class func resetPassword(moaPasswordResetInput: MoaPasswordResetInput, apiResponseQueue: DispatchQueue = MyOrderAppSwiftAPI.apiResponseQueue, completion: @escaping ((_ result: Swift.Result<Bool, Error>) -> Void)) {
+        resetPasswordWithRequestBuilder(moaPasswordResetInput: moaPasswordResetInput).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(.success(response.body!))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    /**
+     - POST /v1/authentication/reset-password
+     - parameter moaPasswordResetInput: (body)  
+     - returns: RequestBuilder<Bool> 
+     */
+    open class func resetPasswordWithRequestBuilder(moaPasswordResetInput: MoaPasswordResetInput) -> RequestBuilder<Bool> {
+        let path = "/v1/authentication/reset-password"
+        let URLString = MyOrderAppSwiftAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: moaPasswordResetInput)
 
         let url = URLComponents(string: URLString)
 

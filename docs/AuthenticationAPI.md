@@ -5,7 +5,8 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthenticationAPI.md#authenticate) | **POST** /v1/authentication | 
-[**requestResetPassword**](AuthenticationAPI.md#requestresetpassword) | **POST** /v1/authentication/password/reset/request | 
+[**forgotPassword**](AuthenticationAPI.md#forgotpassword) | **POST** /v1/authentication/forgot-password | 
+[**resetPassword**](AuthenticationAPI.md#resetpassword) | **POST** /v1/authentication/reset-password | 
 
 
 # **authenticate**
@@ -55,9 +56,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **requestResetPassword**
+# **forgotPassword**
 ```swift
-    open class func requestResetPassword(moaPasswordResetRequest: MoaPasswordResetRequest, completion: @escaping (_ data: Bool?, _ error: Error?) -> Void)
+    open class func forgotPassword(moaPasswordForgotInput: MoaPasswordForgotInput, completion: @escaping (_ data: Bool?, _ error: Error?) -> Void)
 ```
 
 
@@ -67,9 +68,9 @@ No authorization required
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import MyOrderAppSwift
 
-let moaPasswordResetRequest = MoaPasswordResetRequest(email: "email_example", merchantMoaId: "merchantMoaId_example") // MoaPasswordResetRequest | 
+let moaPasswordForgotInput = MoaPasswordForgotInput(email: "email_example", merchantMoaId: "merchantMoaId_example") // MoaPasswordForgotInput | 
 
-AuthenticationAPI.requestResetPassword(moaPasswordResetRequest: moaPasswordResetRequest) { (response, error) in
+AuthenticationAPI.forgotPassword(moaPasswordForgotInput: moaPasswordForgotInput) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -85,7 +86,54 @@ AuthenticationAPI.requestResetPassword(moaPasswordResetRequest: moaPasswordReset
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moaPasswordResetRequest** | [**MoaPasswordResetRequest**](MoaPasswordResetRequest.md) |  | 
+ **moaPasswordForgotInput** | [**MoaPasswordForgotInput**](MoaPasswordForgotInput.md) |  | 
+
+### Return type
+
+**Bool**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **resetPassword**
+```swift
+    open class func resetPassword(moaPasswordResetInput: MoaPasswordResetInput, completion: @escaping (_ data: Bool?, _ error: Error?) -> Void)
+```
+
+
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import MyOrderAppSwift
+
+let moaPasswordResetInput = MoaPasswordResetInput(requestMoaId: "requestMoaId_example", newPassword: "newPassword_example") // MoaPasswordResetInput | 
+
+AuthenticationAPI.resetPassword(moaPasswordResetInput: moaPasswordResetInput) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **moaPasswordResetInput** | [**MoaPasswordResetInput**](MoaPasswordResetInput.md) |  | 
 
 ### Return type
 

@@ -26,7 +26,8 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthenticationAPI* | [**authenticate**](docs/AuthenticationAPI.md#authenticate) | **POST** /v1/authentication | 
-*AuthenticationAPI* | [**requestResetPassword**](docs/AuthenticationAPI.md#requestresetpassword) | **POST** /v1/authentication/password/reset/request | 
+*AuthenticationAPI* | [**forgotPassword**](docs/AuthenticationAPI.md#forgotpassword) | **POST** /v1/authentication/forgot-password | 
+*AuthenticationAPI* | [**resetPassword**](docs/AuthenticationAPI.md#resetpassword) | **POST** /v1/authentication/reset-password | 
 *CardsAPI* | [**createCardForCurrentCustomer**](docs/CardsAPI.md#createcardforcurrentcustomer) | **POST** /v1/customers/current/cards | 
 *CardsAPI* | [**deleteCardForCurrentCustomer**](docs/CardsAPI.md#deletecardforcurrentcustomer) | **DELETE** /v1/customers/current/cards/{squareId} | 
 *CardsAPI* | [**getCardsForCurrentCustomer**](docs/CardsAPI.md#getcardsforcurrentcustomer) | **GET** /v1/customers/current/cards | 
@@ -69,7 +70,8 @@ Class | Method | HTTP request | Description
  - [MoaOrderCreateInput](docs/MoaOrderCreateInput.md)
  - [MoaOrderPaginatedResponse](docs/MoaOrderPaginatedResponse.md)
  - [MoaOrderPayInput](docs/MoaOrderPayInput.md)
- - [MoaPasswordResetRequest](docs/MoaPasswordResetRequest.md)
+ - [MoaPasswordForgotInput](docs/MoaPasswordForgotInput.md)
+ - [MoaPasswordResetInput](docs/MoaPasswordResetInput.md)
  - [MoaVariation](docs/MoaVariation.md)
  - [SquareAddress](docs/SquareAddress.md)
  - [SquareCard](docs/SquareCard.md)

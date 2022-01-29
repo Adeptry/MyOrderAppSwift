@@ -9,6 +9,13 @@ import Foundation
 
 @objc public class MoaLocation: NSObject, Codable {
 
+    public var moaOrdinal: Double?
+    public var moaEnabled: Bool?
+    public var moaEnabledNum: NSNumber? {
+        get {
+            return moaEnabled as NSNumber?
+        }
+    }
     public var name: String?
     public var _description: String?
     public var phoneNumber: String?
@@ -24,7 +31,9 @@ import Foundation
     public var deleteDate: Date?
     public var version: Double?
 
-    public init(name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, image: MoaAWSS3File? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+    public init(moaOrdinal: Double? = nil, moaEnabled: Bool? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, image: MoaAWSS3File? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+        self.moaOrdinal = moaOrdinal
+        self.moaEnabled = moaEnabled
         self.name = name
         self._description = _description
         self.phoneNumber = phoneNumber
@@ -42,6 +51,8 @@ import Foundation
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case moaOrdinal
+        case moaEnabled
         case name
         case _description = "description"
         case phoneNumber

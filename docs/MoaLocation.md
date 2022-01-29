@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**moaOrdinal** | **Double** |  | [optional] 
+**moaEnabled** | **Bool** |  | [optional] 
 **name** | **String** |  | [optional] 
 **_description** | **String** |  | [optional] 
 **phoneNumber** | **String** |  | [optional] 
