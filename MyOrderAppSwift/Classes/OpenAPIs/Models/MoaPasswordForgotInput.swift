@@ -10,9 +10,9 @@ import Foundation
 @objc public class MoaPasswordForgotInput: NSObject, Codable {
 
     public var email: String
-    public var merchantMoaId: String
+    public var merchantMoaId: String?
 
-    public init(email: String, merchantMoaId: String) {
+    public init(email: String, merchantMoaId: String? = nil) {
         self.email = email
         self.merchantMoaId = merchantMoaId
     }

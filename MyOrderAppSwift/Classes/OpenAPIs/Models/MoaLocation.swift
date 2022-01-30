@@ -22,6 +22,21 @@ import Foundation
     public var latitude: Double?
     public var longitude: Double?
     public var status: String?
+    public var address: String?
+    public var country: String?
+    public var languageCode: String?
+    public var currency: String?
+    public var businessName: String?
+    public var type: String?
+    public var websiteUrl: String?
+    public var businessEmail: String?
+    public var twitterUsername: String?
+    public var instagramUsername: String?
+    public var facebookUrl: String?
+    public var logoUrl: String?
+    public var posBackgroundUrl: String?
+    public var mcc: String?
+    public var fullFormatLogoUrl: String?
     public var merchantMoaId: String?
     public var merchant: MoaMerchant?
     public var image: MoaAWSS3File?
@@ -31,7 +46,7 @@ import Foundation
     public var deleteDate: Date?
     public var version: Double?
 
-    public init(moaOrdinal: Double? = nil, moaEnabled: Bool? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, image: MoaAWSS3File? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+    public init(moaOrdinal: Double? = nil, moaEnabled: Bool? = nil, name: String? = nil, _description: String? = nil, phoneNumber: String? = nil, latitude: Double? = nil, longitude: Double? = nil, status: String? = nil, address: String? = nil, country: String? = nil, languageCode: String? = nil, currency: String? = nil, businessName: String? = nil, type: String? = nil, websiteUrl: String? = nil, businessEmail: String? = nil, twitterUsername: String? = nil, instagramUsername: String? = nil, facebookUrl: String? = nil, logoUrl: String? = nil, posBackgroundUrl: String? = nil, mcc: String? = nil, fullFormatLogoUrl: String? = nil, merchantMoaId: String? = nil, merchant: MoaMerchant? = nil, image: MoaAWSS3File? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.moaOrdinal = moaOrdinal
         self.moaEnabled = moaEnabled
         self.name = name
@@ -40,6 +55,21 @@ import Foundation
         self.latitude = latitude
         self.longitude = longitude
         self.status = status
+        self.address = address
+        self.country = country
+        self.languageCode = languageCode
+        self.currency = currency
+        self.businessName = businessName
+        self.type = type
+        self.websiteUrl = websiteUrl
+        self.businessEmail = businessEmail
+        self.twitterUsername = twitterUsername
+        self.instagramUsername = instagramUsername
+        self.facebookUrl = facebookUrl
+        self.logoUrl = logoUrl
+        self.posBackgroundUrl = posBackgroundUrl
+        self.mcc = mcc
+        self.fullFormatLogoUrl = fullFormatLogoUrl
         self.merchantMoaId = merchantMoaId
         self.merchant = merchant
         self.image = image
@@ -59,6 +89,21 @@ import Foundation
         case latitude
         case longitude
         case status
+        case address
+        case country
+        case languageCode
+        case currency
+        case businessName
+        case type
+        case websiteUrl
+        case businessEmail
+        case twitterUsername
+        case instagramUsername
+        case facebookUrl
+        case logoUrl
+        case posBackgroundUrl
+        case mcc
+        case fullFormatLogoUrl
         case merchantMoaId
         case merchant
         case image

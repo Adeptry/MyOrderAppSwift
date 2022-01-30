@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **squareId** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **priceInCents** | **Double** |  | [optional] 
+**itemMoaId** | **String** |  | [optional] 
 **moaId** | **String** |  | [optional] 
 **createDate** | **Date** |  | [optional] 
 **updateDate** | **Date** |  | [optional] 

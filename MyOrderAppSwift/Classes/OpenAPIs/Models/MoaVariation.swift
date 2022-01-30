@@ -20,19 +20,21 @@ import Foundation
     public var squareId: String?
     public var name: String?
     public var priceInCents: Double?
+    public var itemMoaId: String?
     public var moaId: String?
     public var createDate: Date?
     public var updateDate: Date?
     public var deleteDate: Date?
     public var version: Double?
 
-    public init(item: MoaItem? = nil, ordinal: Double? = nil, moaEnabled: Bool? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
+    public init(item: MoaItem? = nil, ordinal: Double? = nil, moaEnabled: Bool? = nil, squareId: String? = nil, name: String? = nil, priceInCents: Double? = nil, itemMoaId: String? = nil, moaId: String? = nil, createDate: Date? = nil, updateDate: Date? = nil, deleteDate: Date? = nil, version: Double? = nil) {
         self.item = item
         self.ordinal = ordinal
         self.moaEnabled = moaEnabled
         self.squareId = squareId
         self.name = name
         self.priceInCents = priceInCents
+        self.itemMoaId = itemMoaId
         self.moaId = moaId
         self.createDate = createDate
         self.updateDate = updateDate
